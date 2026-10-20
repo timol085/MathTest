@@ -7,25 +7,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
   <main id="app">
     <!-- Startsida -->
     <section id="start" class="screen">
       <h1>Matteprov <span class="accent">2c &amp; 3c</span></h1>
-      <p class="lead">25 slumpade flervalsfrågor ur en bank på 200. Välj nivå, svara på alla frågor och lämna in – sedan får du rättning med fullständiga uträkningar.</p>
-
-      <div class="modes" role="radiogroup" aria-label="Välj läge">
-        <button class="mode" data-mode="exam" role="radio">
-          <span class="mode-name">📝 Provläge</span>
-          <span class="mode-desc">Som ett riktigt prov – rättning först när du lämnar in.</span>
-        </button>
-        <button class="mode" data-mode="train" role="radio">
-          <span class="mode-name">💡 Träningsläge</span>
-          <span class="mode-desc">Få en ledtråd om du kör fast, och se rätt svar med uträkning direkt.</span>
-        </button>
-      </div>
+      <p class="lead">25 slumpade flervalsfrågor ur en bank på 200. Välj ett prov, svara på alla frågor och lämna in – sedan får du rättning med fullständiga uträkningar. Vill du öva i lugn och ro, välj Träning.</p>
 
       <div class="levels" role="radiogroup" aria-label="Välj nivå">
         <button class="level" data-level="2c">
@@ -39,6 +28,10 @@
         <button class="level" data-level="mix">
           <span class="level-name">Mixat</span>
           <span class="level-desc">Blandat från båda kurserna</span>
+        </button>
+        <button class="level level-train" data-level="train">
+          <span class="level-name">💡 Träning</span>
+          <span class="level-desc">Blandat från båda kurserna, utan tidtagning. Få en ledtråd om du kör fast och se rätt svar med uträkning direkt.</span>
         </button>
       </div>
 
@@ -105,11 +98,12 @@
       <div class="end-actions">
         <button id="restart-same" class="btn btn-primary">Nytt prov (samma nivå)</button>
         <button id="restart" class="btn btn-ghost">Till startsidan</button>
+        <button id="delete-this" class="btn btn-ghost btn-danger"></button>
       </div>
     </section>
   </main>
 
-  <script src="questions.js"></script>
-  <script src="app.js"></script>
+  <script src="questions.js?v=4"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>

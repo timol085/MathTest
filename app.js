@@ -3,17 +3,14 @@
 
   const TEST_LENGTH = 25;
   const LETTERS = ["A", "B", "C"];
-  const LEVEL_NAMES = { "2c": "Matte 2c", "3c": "Matte 3c", mix: "Mixat" };
-  const MODE_NAMES = { exam: "Provläge", train: "Träningsläge" };
+  const LEVEL_NAMES = { "2c": "Matte 2c", "3c": "Matte 3c", mix: "Mixat", train: "Träning" };
   const HISTORY_KEY = "matteprov-historik";
-  const MODE_KEY = "matteprov-läge";
 
   const $ = (id) => document.getElementById(id);
   const screens = ["start", "quiz", "result"];
 
   let state = null;
   let timerId = null;
-  let mode = "exam";
 
   // ---------- hjälpfunktioner ----------
 
@@ -58,18 +55,11 @@
     return ol;
   }
 
-  function setMode(m) {
-    mode = m;
-    document.querySelectorAll(".mode").forEach((b) =>
-      b.setAttribute("aria-checked", String(b.dataset.mode === m)));
-    try { localStorage.setItem(MODE_KEY, m); } catch { /* ignorera */ }
-  }
-
   // ---------- provet ----------
 
   function pickQuestions(level) {
     const bank = window.QUESTIONS;
-    if (level === "mix") {
+    if (level === "mix" || level === "train") {
       const n2 = Math.random() < 0.5 ? 13 : 12;
       const a = shuffle(bank.filter((q) => q.course === "2c")).slice(0, n2);
       const b = shuffle(bank.filter((q) => q.course === "3c")).slice(0, TEST_LENGTH - n2);
@@ -81,18 +71,23 @@
   function startTest(level) {
     const qs = pickQuestions(level).map((q) => ({ q, order: shuffle([0, 1, 2]) }));
     state = {
-      level, mode, items: qs, idx: 0, start: Date.now(),
+      level, mode: level === "train" ? "train" : "exam", items: qs, idx: 0, start: Date.now(),
       answers: Array(qs.length).fill(null),
       hints: Array(qs.length).fill(false),
     };
-    $("q-mode").textContent = MODE_NAMES[mode];
-    $("train-tools").hidden = mode !== "train";
+    const training = state.mode === "train";
+    $("q-mode").textContent = training ? "Träning" : "";
+    $("q-mode").hidden = !training;
+    $("train-tools").hidden = !training;
     buildDots();
     show("quiz");
     renderQuestion();
     clearInterval(timerId);
-    timerId = setInterval(() => ($("q-timer").textContent = "⏱ " + fmtTime(Date.now() - state.start)), 1000);
-    $("q-timer").textContent = "⏱ 0:00";
+    $("q-timer").hidden = training;
+    if (!training) {
+      timerId = setInterval(() => ($("q-timer").textContent = "⏱ " + fmtTime(Date.now() - state.start)), 1000);
+      $("q-timer").textContent = "⏱ 0:00";
+    }
   }
 
   function renderQuestion() {
@@ -206,28 +201,50 @@
 
   // ---------- resultat ----------
 
+  let viewed = null; // resultatet som visas på resultatsidan
+
   function finish() {
     clearInterval(timerId);
-    const elapsed = Date.now() - state.start;
     const { items, answers } = state;
-    const score = items.reduce((s, it, i) => s + (answers[i] === 0 ? 1 : 0), 0);
-    const pct = Math.round((score / items.length) * 100);
+    const record = {
+      id: String(Date.now()),
+      date: Date.now(),
+      level: state.level,
+      mode: state.mode,
+      time: Date.now() - state.start,
+      score: items.reduce((s, _, i) => s + (answers[i] === 0 ? 1 : 0), 0),
+      total: items.length,
+      items,
+      answers,
+      hints: state.hints,
+    };
+    saveHistory(record);
+    showResult(record);
+  }
 
-    $("r-score").textContent = score;
-    $("r-total").textContent = items.length;
-    $("r-percent").textContent = `${pct} % rätt · ${LEVEL_NAMES[state.level]}`;
-    $("r-time").textContent = `Tid: ${fmtTime(elapsed)}`;
-    const hintsUsed = state.hints.filter(Boolean).length;
-    $("r-hints").hidden = state.mode !== "train";
-    $("r-hints").textContent = `${MODE_NAMES.train} · ledtrådar använda: ${hintsUsed}`;
+  function fmtDate(ms) {
+    return new Date(ms).toLocaleDateString("sv-SE",
+      { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
+  }
+
+  function showResult(r) {
+    viewed = r;
+    const pct = Math.round((r.score / r.total) * 100);
+    $("r-score").textContent = r.score;
+    $("r-total").textContent = r.total;
+    $("r-percent").textContent = `${pct} % rätt · ${LEVEL_NAMES[r.level]}`;
+    const training = r.mode === "train";
+    $("r-time").textContent = (training ? "" : `Tid: ${fmtTime(r.time)} · `) + fmtDate(r.date);
+    $("r-hints").hidden = !training;
+    $("r-hints").textContent = `Ledtrådar använda: ${r.hints.filter(Boolean).length}`;
 
     // per område
     const topics = {};
-    items.forEach((it, i) => {
+    r.items.forEach((it, i) => {
       const key = it.q.topic;
       topics[key] = topics[key] || { right: 0, total: 0 };
       topics[key].total++;
-      if (answers[i] === 0) topics[key].right++;
+      if (r.answers[i] === 0) topics[key].right++;
     });
     const tbl = $("r-topics");
     tbl.innerHTML = "";
@@ -239,24 +256,26 @@
         tbl.appendChild(tr);
       });
 
+    $("only-wrong").checked = false;
+    resetConfirm($("delete-this"), "Radera det här resultatet");
     renderReview();
-    saveHistory({ level: state.level, mode: state.mode, score, total: items.length, hints: hintsUsed, time: elapsed, date: Date.now() });
     show("result");
   }
 
   function renderReview() {
+    const r = viewed;
     const box = $("review");
     box.innerHTML = "";
     const onlyWrong = $("only-wrong").checked;
-    state.items.forEach(({ q, order }, i) => {
-      const picked = state.answers[i];
+    r.items.forEach(({ q, order }, i) => {
+      const picked = r.answers[i];
       const right = picked === 0;
       if (onlyWrong && right) return;
 
       const card = el("article", "card rq" + (right ? "" : " wrong"));
       const status = right ? "✓ Rätt" : picked === null ? "– Obesvarad" : "✗ Fel";
       card.appendChild(el("div", "rq-head",
-        `<span>Fråga ${i + 1} · Matte ${q.course} · ${q.topic}${state.hints[i] ? ' · <span class="hint-tag">💡 ledtråd</span>' : ""}</span><span class="rq-status">${status}</span>`));
+        `<span>Fråga ${i + 1} · Matte ${q.course} · ${q.topic}${r.hints[i] ? ' · <span class="hint-tag">💡 ledtråd</span>' : ""}</span><span class="rq-status">${status}</span>`));
       card.appendChild(el("div", "q-text", q.q));
 
       const choices = el("div", "choices");
@@ -283,38 +302,86 @@
     math(box);
   }
 
-  // ---------- historik (bara i den här webbläsaren) ----------
+  // ---------- historik (sparas bara i den här webbläsaren) ----------
+
+  const MAX_HISTORY = 50;
 
   function loadHistory() {
     try { return JSON.parse(localStorage.getItem(HISTORY_KEY)) || []; } catch { return []; }
   }
 
-  function saveHistory(entry) {
-    try {
-      const h = [entry, ...loadHistory()].slice(0, 10);
-      localStorage.setItem(HISTORY_KEY, JSON.stringify(h));
-    } catch { /* ignorera */ }
+  function writeHistory(h) {
+    // Om lagringen blir full: släng de äldsta resultaten tills det får plats.
+    while (true) {
+      try { localStorage.setItem(HISTORY_KEY, JSON.stringify(h)); return; }
+      catch {
+        if (h.length <= 1) return;
+        h = h.slice(0, -1);
+      }
+    }
+  }
+
+  function saveHistory(record) {
+    writeHistory([record, ...loadHistory()].slice(0, MAX_HISTORY));
+  }
+
+  function deleteHistory(id) {
+    writeHistory(id === null ? [] : loadHistory().filter((r) => r.id !== id));
+  }
+
+  // Knapp som kräver två klick: första klicket ber om bekräftelse.
+  function confirmButton(btn, label, onConfirm) {
+    resetConfirm(btn, label);
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (btn.dataset.armed === "1") return onConfirm();
+      btn.dataset.armed = "1";
+      btn.textContent = "Säker? Klicka igen";
+      btn.classList.add("armed");
+      clearTimeout(btn._t);
+      btn._t = setTimeout(() => resetConfirm(btn, label), 3000);
+    });
+  }
+
+  function resetConfirm(btn, label) {
+    btn.dataset.armed = "0";
+    btn.textContent = label;
+    btn.classList.remove("armed");
   }
 
   function renderHistory() {
     const h = loadHistory();
     const box = $("history");
     box.hidden = h.length === 0;
+    box.innerHTML = "";
     if (!h.length) return;
-    box.innerHTML = "<h2>Dina senaste resultat</h2>";
+
+    const head = el("div", "history-head");
+    head.appendChild(el("h2", "", "Tidigare resultat"));
+    const clearAll = el("button", "btn btn-ghost btn-small btn-danger");
+    confirmButton(clearAll, "Radera alla", () => { deleteHistory(null); renderHistory(); });
+    head.appendChild(clearAll);
+    box.appendChild(head);
+
     const ul = el("ul");
     h.forEach((r) => {
-      const d = new Date(r.date).toLocaleDateString("sv-SE", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
-      ul.appendChild(el("li", "",
-        `<span>${LEVEL_NAMES[r.level]}${r.mode === "train" ? " · träning" : ""} <span class="muted">· ${d}</span></span><strong>${r.score}/${r.total}</strong>`));
+      const li = el("li");
+      const open = el("button", "history-open",
+        `<span>${LEVEL_NAMES[r.level]} <span class="muted">· ${fmtDate(r.date)}</span></span>` +
+        `<span class="history-score"><strong>${r.score}/${r.total}</strong>${r.items ? ' <span class="muted">Visa →</span>' : ""}</span>`);
+      if (r.items) open.addEventListener("click", () => showResult(r));
+      else open.disabled = true;
+      const del = el("button", "btn btn-ghost btn-small btn-danger");
+      del.setAttribute("aria-label", "Radera resultat");
+      confirmButton(del, "🗑", () => { deleteHistory(r.id); renderHistory(); });
+      li.append(open, del);
+      ul.appendChild(li);
     });
     box.appendChild(ul);
   }
 
   // ---------- händelser ----------
 
-  document.querySelectorAll(".mode").forEach((b) =>
-    b.addEventListener("click", () => setMode(b.dataset.mode)));
   $("hint-btn").addEventListener("click", showHint);
   document.querySelectorAll(".level").forEach((b) =>
     b.addEventListener("click", () => startTest(b.dataset.level)));
@@ -328,7 +395,12 @@
     if (first >= 0) { state.idx = first; renderQuestion(); }
   });
   $("only-wrong").addEventListener("change", renderReview);
-  $("restart-same").addEventListener("click", () => startTest(state.level));
+  $("restart-same").addEventListener("click", () => startTest(viewed.level));
+  confirmButton($("delete-this"), "Radera det här resultatet", () => {
+    deleteHistory(viewed.id);
+    renderHistory();
+    show("start");
+  });
   $("restart").addEventListener("click", () => { renderHistory(); show("start"); });
 
   document.addEventListener("keydown", (e) => {
@@ -341,8 +413,5 @@
     else if (e.key === "ArrowLeft") go(-1);
   });
 
-  let savedMode = "exam";
-  try { savedMode = localStorage.getItem(MODE_KEY) === "train" ? "train" : "exam"; } catch { /* ignorera */ }
-  setMode(savedMode);
   renderHistory();
 })();
