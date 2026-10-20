@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matteprov 2c & 3c</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <!-- Startsida -->
+    <section id="start" class="screen">
+      <h1>Matteprov <span class="accent">2c &amp; 3c</span></h1>
+      <p class="lead">25 slumpade flervalsfrågor ur en bank på 200. Välj nivå, svara på alla frågor och lämna in – sedan får du rättning med fullständiga uträkningar.</p>
+
+      <div class="levels" role="radiogroup" aria-label="Välj nivå">
+        <button class="level" data-level="2c">
+          <span class="level-name">Matte 2c</span>
+          <span class="level-desc">Algebra, andragradsekvationer, räta linjen, logaritmer, exponentialekvationer, geometri, statistik</span>
+        </button>
+        <button class="level" data-level="3c">
+          <span class="level-name">Matte 3c</span>
+          <span class="level-desc">Derivata, integraler, gränsvärden, e och ln, trigonometri</span>
+        </button>
+        <button class="level" data-level="mix">
+          <span class="level-name">Mixat</span>
+          <span class="level-desc">Blandat från båda kurserna</span>
+        </button>
+      </div>
+
+      <div id="history" class="history" hidden></div>
+    </section>
+
+    <!-- Provet -->
+    <section id="quiz" class="screen" hidden>
+      <header class="quiz-head">
+        <div class="quiz-meta">
+          <span id="q-counter"></span>
+          <span id="q-timer" class="muted"></span>
+        </div>
+        <div class="progress"><div id="q-progress"></div></div>
+      </header>
+
+      <article class="card question-card">
+        <div class="chips"><span id="q-course" class="chip"></span><span id="q-topic" class="chip chip-soft"></span></div>
+        <div id="q-text" class="q-text"></div>
+        <div id="q-choices" class="choices"></div>
+      </article>
+
+      <nav class="quiz-nav">
+        <button id="prev" class="btn btn-ghost">← Föregående</button>
+        <button id="next" class="btn">Nästa →</button>
+      </nav>
+
+      <div id="dots" class="dots" aria-label="Hoppa till fråga"></div>
+
+      <div class="submit-row">
+        <button id="submit" class="btn btn-primary">Lämna in provet</button>
+        <div id="confirm" class="confirm" hidden>
+          <p id="confirm-text"></p>
+          <button id="confirm-yes" class="btn btn-primary">Lämna in ändå</button>
+          <button id="confirm-no" class="btn btn-ghost">Fortsätt svara</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resultat -->
+    <section id="result" class="screen" hidden>
+      <div class="card score-card">
+        <div class="score-big"><span id="r-score"></span><span class="muted"> / <span id="r-total"></span></span></div>
+        <div id="r-percent" class="score-pct"></div>
+        <div id="r-time" class="muted"></div>
+      </div>
+
+      <h2>Per område</h2>
+      <div class="table-wrap"><table id="r-topics" class="topics"></table></div>
+
+      <div class="review-head">
+        <h2>Rättning</h2>
+        <label class="toggle"><input type="checkbox" id="only-wrong"> Visa bara fel</label>
+      </div>
+      <div id="review"></div>
+
+      <div class="end-actions">
+        <button id="restart-same" class="btn btn-primary">Nytt prov (samma nivå)</button>
+        <button id="restart" class="btn btn-ghost">Till startsidan</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
