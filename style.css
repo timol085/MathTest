@@ -56,6 +56,9 @@ h2 { font-size: 1.15rem; margin: 32px 0 12px; }
 .btn-ghost { background: transparent; }
 
 /* Startsida */
+.group-title { margin: 28px 0 2px; }
+.group-desc { color: var(--muted); font-size: .92rem; margin: 0 0 12px; }
+.levels-train { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
 .level-train { border-style: dashed; }
 .levels { display: grid; gap: 12px; }
 .level {

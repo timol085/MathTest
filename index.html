@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
   <main id="app">
@@ -16,7 +16,9 @@
       <h1>Matteprov <span class="accent">2c &amp; 3c</span></h1>
       <p class="lead">25 slumpade flervalsfrågor ur en bank på 200. Välj ett prov, svara på alla frågor och lämna in – sedan får du rättning med fullständiga uträkningar. Vill du öva i lugn och ro, välj Träning.</p>
 
-      <div class="levels" role="radiogroup" aria-label="Välj nivå">
+      <h2 class="group-title">📝 Prov</h2>
+      <p class="group-desc">Med tidtagning – rättning först när du lämnar in.</p>
+      <div class="levels" aria-label="Välj prov">
         <button class="level" data-level="2c">
           <span class="level-name">Matte 2c</span>
           <span class="level-desc">Algebra, andragradsekvationer, räta linjen, logaritmer, exponentialekvationer, geometri, statistik</span>
@@ -29,9 +31,22 @@
           <span class="level-name">Mixat</span>
           <span class="level-desc">Blandat från båda kurserna</span>
         </button>
-        <button class="level level-train" data-level="train">
-          <span class="level-name">💡 Träning</span>
-          <span class="level-desc">Blandat från båda kurserna, utan tidtagning. Få en ledtråd om du kör fast och se rätt svar med uträkning direkt.</span>
+      </div>
+
+      <h2 class="group-title">💡 Träning</h2>
+      <p class="group-desc">Utan tidtagning. Få en ledtråd om du kör fast och se rätt svar med uträkning direkt.</p>
+      <div class="levels levels-train" aria-label="Välj träning">
+        <button class="level level-train" data-level="2c" data-mode="train">
+          <span class="level-name">Träning 2c</span>
+          <span class="level-desc">Frågor från Matte 2c</span>
+        </button>
+        <button class="level level-train" data-level="3c" data-mode="train">
+          <span class="level-name">Träning 3c</span>
+          <span class="level-desc">Frågor från Matte 3c</span>
+        </button>
+        <button class="level level-train" data-level="mix" data-mode="train">
+          <span class="level-name">Träning mixat</span>
+          <span class="level-desc">Blandat från båda kurserna</span>
         </button>
       </div>
 
@@ -103,7 +118,7 @@
     </section>
   </main>
 
-  <script src="questions.js?v=4"></script>
-  <script src="app.js?v=4"></script>
+  <script src="questions.js?v=5"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>

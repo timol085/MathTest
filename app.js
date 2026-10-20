@@ -3,7 +3,7 @@
 
   const TEST_LENGTH = 25;
   const LETTERS = ["A", "B", "C"];
-  const LEVEL_NAMES = { "2c": "Matte 2c", "3c": "Matte 3c", mix: "Mixat", train: "Träning" };
+  const LEVEL_NAMES = { "2c": "Matte 2c", "3c": "Matte 3c", mix: "Mixat", train: "Mixat" };
   const HISTORY_KEY = "matteprov-historik";
 
   const $ = (id) => document.getElementById(id);
@@ -68,10 +68,16 @@
     return shuffle(bank.filter((q) => q.course === level)).slice(0, TEST_LENGTH);
   }
 
-  function startTest(level) {
+  function label(level, mode) {
+    const name = LEVEL_NAMES[level];
+    // äldre sparade resultat har level "train" (= mixad träning)
+    return mode === "train" || level === "train" ? `Träning · ${name}` : name;
+  }
+
+  function startTest(level, mode) {
     const qs = pickQuestions(level).map((q) => ({ q, order: shuffle([0, 1, 2]) }));
     state = {
-      level, mode: level === "train" ? "train" : "exam", items: qs, idx: 0, start: Date.now(),
+      level, mode: mode === "train" ? "train" : "exam", items: qs, idx: 0, start: Date.now(),
       answers: Array(qs.length).fill(null),
       hints: Array(qs.length).fill(false),
     };
@@ -232,7 +238,7 @@
     const pct = Math.round((r.score / r.total) * 100);
     $("r-score").textContent = r.score;
     $("r-total").textContent = r.total;
-    $("r-percent").textContent = `${pct} % rätt · ${LEVEL_NAMES[r.level]}`;
+    $("r-percent").textContent = `${pct} % rätt · ${label(r.level, r.mode)}`;
     const training = r.mode === "train";
     $("r-time").textContent = (training ? "" : `Tid: ${fmtTime(r.time)} · `) + fmtDate(r.date);
     $("r-hints").hidden = !training;
@@ -367,7 +373,7 @@
     h.forEach((r) => {
       const li = el("li");
       const open = el("button", "history-open",
-        `<span>${LEVEL_NAMES[r.level]} <span class="muted">· ${fmtDate(r.date)}</span></span>` +
+        `<span>${label(r.level, r.mode)} <span class="muted">· ${fmtDate(r.date)}</span></span>` +
         `<span class="history-score"><strong>${r.score}/${r.total}</strong>${r.items ? ' <span class="muted">Visa →</span>' : ""}</span>`);
       if (r.items) open.addEventListener("click", () => showResult(r));
       else open.disabled = true;
@@ -384,7 +390,7 @@
 
   $("hint-btn").addEventListener("click", showHint);
   document.querySelectorAll(".level").forEach((b) =>
-    b.addEventListener("click", () => startTest(b.dataset.level)));
+    b.addEventListener("click", () => startTest(b.dataset.level, b.dataset.mode)));
   $("prev").addEventListener("click", () => go(-1));
   $("next").addEventListener("click", () => go(1));
   $("submit").addEventListener("click", trySubmit);
@@ -395,7 +401,7 @@
     if (first >= 0) { state.idx = first; renderQuestion(); }
   });
   $("only-wrong").addEventListener("change", renderReview);
-  $("restart-same").addEventListener("click", () => startTest(viewed.level));
+  $("restart-same").addEventListener("click", () => startTest(viewed.level === "train" ? "mix" : viewed.level, viewed.mode));
   confirmButton($("delete-this"), "Radera det här resultatet", () => {
     deleteHistory(viewed.id);
     renderHistory();
