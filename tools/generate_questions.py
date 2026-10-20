@@ -1155,6 +1155,64 @@ def vaxande():
 
 
 # =====================================================================
+#            LEDTRÅDAR (träningsläge) – hur man kommer igång
+# =====================================================================
+
+HINTS = {
+    # Matte 2c
+    "kvadrering": "Använd kvadreringsregeln " + M("(a+b)^2 = a^2 + 2ab + b^2") + ". Glöm inte dubbla produkten " + M("2ab") + ".",
+    "konjugat": "Känner du igen konjugatregeln " + M("(a+b)(a-b) = a^2 - b^2") + "? Mittentermerna tar ut varandra.",
+    "faktorisera": "Leta först efter en gemensam faktor att bryta ut. Försök sedan känna igen kvadrerings- eller konjugatregeln baklänges.",
+    "pq": "Se till att " + M("x^2") + "-termen har koefficienten 1 (dela annars hela ekvationen), läs av " + M("p") + " och " + M("q") + " och använd pq-formeln.",
+    "rotekv": "Det finns ingen " + M("x") + "-term. Isolera " + M("x^2") + " och dra roten ur – kom ihåg att det blir två lösningar.",
+    "nollprodukt": "Det finns ingen konstantterm. Bryt ut " + M("x") + " och använd nollproduktmetoden.",
+    "ekvsystem_subst": "Ena ekvationen ger redan " + M("y") + " uttryckt i " + M("x") + ". Sätt in det uttrycket i den andra ekvationen.",
+    "ekvsystem_add": "Titta på " + M("y") + "-termerna: " + M("+y") + " och " + M("-y") + ". Vad händer om du adderar ekvationerna?",
+    "lutning": M("k = \\frac{\\Delta y}{\\Delta x}") + ". Subtrahera i samma ordning i täljare och nämnare.",
+    "linjens_ekv": "Räkna först ut " + M("k") + " med de två punkterna. Sätt sedan in en av punkterna i " + M("y = kx + m") + " för att få " + M("m") + ".",
+    "vinkelrat": "Parallella linjer har samma " + M("k") + ". Vinkelräta linjer uppfyller " + M("k_1 \\cdot k_2 = -1") + ".",
+    "lg_berakna": "Skriv talen som tiopotenser och använd att " + M("\\lg 10^n = n") + ".",
+    "lg_ekv": M("\\lg x = n") + " betyder att " + M("10^n = x") + ".",
+    "tiopotens": "Isolera först tiopotensen genom att dela, logaritmera sedan med " + M("\\lg") + ".",
+    "exp_heltal": "Dela bort koefficienten framför potensen (om det finns en) och skriv högerledet som en potens med samma bas.",
+    "fordubbling": "Ställ upp " + M("(\\text{förändringsfaktor})^x = 2") + " (eller " + M("0{,}5") + "). Logaritmera båda leden och använd " + M("\\lg a^x = x \\lg a") + ".",
+    "forandringsfaktor": "Gör om procenten till en förändringsfaktor (t.ex. +5 % → " + M("1{,}05") + ", −5 % → " + M("0{,}95") + ") och upphöj till antalet år.",
+    "vertex": "Extrempunkten ligger på symmetrilinjen " + M("x = -\\frac{b}{2a}") + ". Sätt sedan in x-värdet i funktionen.",
+    "avstand": "Tänk dig en rätvinklig triangel mellan punkterna och använd Pythagoras sats (avståndsformeln).",
+    "mittpunkt": "Mittpunkten är medelvärdet av x-koordinaterna och medelvärdet av y-koordinaterna.",
+    "randvinkel": "Randvinkelsatsen: randvinkeln är hälften av medelpunktsvinkeln på samma båge. En randvinkel som står på en diameter är " + M("90^\\circ") + ".",
+    "likformighet": "Bestäm skalan mellan trianglarna med två sidor som motsvarar varandra. Multiplicera sedan den sökta sidans motsvarighet med skalan.",
+    "areaskala": "Om längdskalan är " + M("k") + " blir areaskalan " + M("k^2") + " och volymskalan " + M("k^3") + ".",
+    "statistik": "Medelvärde: summan delat med antalet. Median: sortera talen först och ta det mittersta (eller medelvärdet av de två mittersta).",
+    "potenslagar": "Potenslagarna: " + M("x^a \\cdot x^b = x^{a+b}") + ", " + M("\\frac{x^a}{x^b} = x^{a-b}") + " och " + M("(x^a)^b = x^{ab}") + ".",
+    # Matte 3c
+    "derivata_varde": "Derivera först hela funktionen term för term. Sätt sedan in x-värdet i " + M("f'(x)") + ", inte i " + M("f(x)") + ".",
+    "derivata_uttryck": M("D(ax^n) = a \\cdot n \\cdot x^{n-1}") + ", och konstanter har derivatan 0.",
+    "derivata_exp": M("D(e^{kx}) = k e^{kx}") + ". Derivera varje term för sig.",
+    "derivata_rot_inv": "Skriv om som potens: " + M("\\sqrt{x} = x^{1/2}") + " och " + M("\\frac{1}{x} = x^{-1}") + ". Använd sedan deriveringsregeln för potenser.",
+    "tangent": "Tangenten har lutningen " + M("k = f'(a)") + " och går genom punkten " + M("(a,\\ f(a))") + ". Använd " + M("y = kx + m") + ".",
+    "extrempunkt": "Lös " + M("f'(x) = 0") + ". Avgör sedan typen med andraderivatan: " + M("f'' < 0") + " ger max och " + M("f'' > 0") + " ger min.",
+    "stationara": "Stationära punkter är där " + M("f'(x) = 0") + ". Bryt ut " + M("x") + " ur derivatan.",
+    "integral_poly": "Ta fram en primitiv funktion " + M("F") + " och beräkna " + M("F(\\text{övre}) - F(\\text{undre})") + ".",
+    "primitiv_poly": "En primitiv funktion till " + M("x^n") + " är " + M("\\frac{x^{n+1}}{n+1}") + ". Glöm inte " + M("+\\,C") + ".",
+    "primitiv_exp": "En primitiv funktion till " + M("e^{kx}") + " är " + M("\\frac{e^{kx}}{k}") + " – kontrollera genom att derivera tillbaka.",
+    "integral_exp": "En primitiv funktion till " + M("ke^{kx}") + " är " + M("e^{kx}") + ". Använd sedan att " + M("e^{\\ln a} = a") + ".",
+    "area_mellan": "Bestäm nollställena – de är integrationsgränserna. Integrera sedan funktionen mellan dem.",
+    "gransvarde": "Direkt insättning ger " + M("\\frac{0}{0}") + ". Faktorisera täljaren och förkorta.",
+    "derivatans_def": "Räkna ut " + M("f(a+h) - f(a)") + ", förenkla, dela med " + M("h") + " och låt " + M("h \\to 0") + ".",
+    "rationella": "Faktorisera täljare och nämnare (konjugat- och kvadreringsregeln) och förkorta sedan gemensamma faktorer.",
+    "medelforandring": "Genomsnittlig förändringshastighet är " + M("\\frac{f(b) - f(a)}{b - a}") + ".",
+    "trig_exakt": "Rita enhetscirkeln: i vilken kvadrant ligger vinkeln, och vilken är referensvinkeln (vinkeln till x-axeln)?",
+    "triangelarea": "Areasatsen: " + M("A = \\frac{ab \\sin C}{2}") + ".",
+    "cosinussats": "Cosinussatsen: " + M("c^2 = a^2 + b^2 - 2ab \\cos C") + ". Exakta värden: " + M("\\cos 60^\\circ = \\frac{1}{2}") + ", " + M("\\cos 120^\\circ = -\\frac{1}{2}") + ".",
+    "sinussats": "Sinussatsen: " + M("\\frac{a}{\\sin A} = \\frac{b}{\\sin B}") + ". Lös ut " + M("b") + ".",
+    "ln_ekv": "Isolera e-potensen först, ta sedan " + M("\\ln") + " av båda leden.",
+    "derivata_ax": "Skriv " + M("a^x = e^{x \\ln a}") + " och derivera – eller använd " + M("D(a^x) = a^x \\ln a") + ".",
+    "ln_forenkla": M("\\ln") + " och " + M("e") + " tar ut varandra: " + M("\\ln e^x = x") + " och " + M("e^{\\ln x} = x") + ". Dessutom är " + M("\\ln 1 = 0") + " och " + M("\\ln a + \\ln b = \\ln(ab)") + ".",
+    "andraderivata": "Derivera två gånger och sätt sedan in x-värdet.",
+    "vaxande": M("f") + " är växande där " + M("f'(x) \\geq 0") + " och avtagande där " + M("f'(x) \\leq 0") + ".",
+}
+
 
 def build(templates, course, prefix):
     out, seen = [], set()
@@ -1173,6 +1231,7 @@ def build(templates, course, prefix):
                 raise RuntimeError("för få unika frågor")
             continue
         seen.add(q["q"])
+        q["hint"] = HINTS[t.__name__]
         q["course"] = course
         q["id"] = f"{prefix}{len(out) + 1:03d}"
         out.append(q)
@@ -1180,6 +1239,8 @@ def build(templates, course, prefix):
 
 
 def main():
+    missing = [t.__name__ for t in T2 + T3 if t.__name__ not in HINTS]
+    assert not missing, f"ledtråd saknas för: {missing}"
     bank = build(T2, "2c", "A") + build(T3, "3c", "B")
     root = Path(__file__).resolve().parent.parent
     js = "// Genererad av tools/generate_questions.py – redigera inte för hand.\n"

@@ -56,6 +56,17 @@ h2 { font-size: 1.15rem; margin: 32px 0 12px; }
 .btn-ghost { background: transparent; }
 
 /* Startsida */
+.modes { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-bottom: 20px; }
+.mode {
+  font: inherit; text-align: left; cursor: pointer;
+  background: transparent; color: var(--text);
+  border: 2px solid var(--border); border-radius: var(--radius);
+  padding: 12px 16px; display: grid; gap: 2px;
+}
+.mode:hover { border-color: var(--accent); }
+.mode[aria-checked="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.mode-name { font-weight: 700; }
+.mode-desc { color: var(--muted); font-size: .88rem; }
 .levels { display: grid; gap: 12px; }
 .level {
   font: inherit; text-align: left; cursor: pointer;
@@ -117,6 +128,18 @@ h2 { font-size: 1.15rem; margin: 32px 0 12px; }
 .confirm p { margin: 0 0 10px; }
 .confirm .btn { margin-right: 8px; margin-top: 4px; }
 
+/* Träningsläge */
+.train-tools { margin-top: 16px; display: grid; gap: 12px; justify-items: start; }
+.hint-box, .feedback { width: 100%; border-radius: 12px; padding: 12px 14px; overflow-x: auto; }
+.hint-box { background: var(--accent-soft); border: 1px dashed var(--accent); }
+.hint-box strong { color: var(--accent); }
+.feedback { background: var(--good-soft); }
+.feedback.wrong { background: var(--bad-soft); }
+.feedback .verdict { font-weight: 700; color: var(--good); }
+.feedback.wrong .verdict { color: var(--bad); }
+.feedback .steps { margin-top: 8px; }
+.hint-tag { font-size: .78rem; color: var(--accent); font-weight: 600; }
+
 /* Resultat */
 .score-card { text-align: center; }
 .score-big { font-size: 3rem; font-weight: 800; letter-spacing: -0.03em; }
@@ -138,8 +161,9 @@ h2 { font-size: 1.15rem; margin: 32px 0 12px; }
 .rq.wrong .rq-status { color: var(--bad); }
 .rq .choice { cursor: default; padding: 8px 12px; }
 .rq .choice:hover { border-color: var(--border); }
-.rq .choice.correct { border-color: var(--good); background: var(--good-soft); }
-.rq .choice.picked-wrong { border-color: var(--bad); background: var(--bad-soft); }
+.choice.correct, .choice.correct:hover { border-color: var(--good); background: var(--good-soft); }
+.choice.picked-wrong, .choice.picked-wrong:hover { border-color: var(--bad); background: var(--bad-soft); }
+.choice:disabled { cursor: default; color: var(--text); opacity: 1; }
 .tag { margin-left: auto; font-size: .78rem; font-weight: 600; white-space: nowrap; }
 .correct .tag { color: var(--good); }
 .picked-wrong .tag { color: var(--bad); }

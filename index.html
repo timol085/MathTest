@@ -16,6 +16,17 @@
       <h1>Matteprov <span class="accent">2c &amp; 3c</span></h1>
       <p class="lead">25 slumpade flervalsfrågor ur en bank på 200. Välj nivå, svara på alla frågor och lämna in – sedan får du rättning med fullständiga uträkningar.</p>
 
+      <div class="modes" role="radiogroup" aria-label="Välj läge">
+        <button class="mode" data-mode="exam" role="radio">
+          <span class="mode-name">📝 Provläge</span>
+          <span class="mode-desc">Som ett riktigt prov – rättning först när du lämnar in.</span>
+        </button>
+        <button class="mode" data-mode="train" role="radio">
+          <span class="mode-name">💡 Träningsläge</span>
+          <span class="mode-desc">Få en ledtråd om du kör fast, och se rätt svar med uträkning direkt.</span>
+        </button>
+      </div>
+
       <div class="levels" role="radiogroup" aria-label="Välj nivå">
         <button class="level" data-level="2c">
           <span class="level-name">Matte 2c</span>
@@ -38,7 +49,7 @@
     <section id="quiz" class="screen" hidden>
       <header class="quiz-head">
         <div class="quiz-meta">
-          <span id="q-counter"></span>
+          <span><span id="q-counter"></span> <span id="q-mode" class="chip chip-soft"></span></span>
           <span id="q-timer" class="muted"></span>
         </div>
         <div class="progress"><div id="q-progress"></div></div>
@@ -48,6 +59,12 @@
         <div class="chips"><span id="q-course" class="chip"></span><span id="q-topic" class="chip chip-soft"></span></div>
         <div id="q-text" class="q-text"></div>
         <div id="q-choices" class="choices"></div>
+
+        <div id="train-tools" class="train-tools" hidden>
+          <button id="hint-btn" class="btn btn-ghost hint-btn">💡 Visa ledtråd</button>
+          <div id="hint-box" class="hint-box" hidden></div>
+          <div id="feedback" class="feedback" hidden></div>
+        </div>
       </article>
 
       <nav class="quiz-nav">
@@ -73,6 +90,7 @@
         <div class="score-big"><span id="r-score"></span><span class="muted"> / <span id="r-total"></span></span></div>
         <div id="r-percent" class="score-pct"></div>
         <div id="r-time" class="muted"></div>
+        <div id="r-hints" class="muted" hidden></div>
       </div>
 
       <h2>Per område</h2>

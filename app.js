@@ -4,13 +4,16 @@
   const TEST_LENGTH = 25;
   const LETTERS = ["A", "B", "C"];
   const LEVEL_NAMES = { "2c": "Matte 2c", "3c": "Matte 3c", mix: "Mixat" };
+  const MODE_NAMES = { exam: "Provläge", train: "Träningsläge" };
   const HISTORY_KEY = "matteprov-historik";
+  const MODE_KEY = "matteprov-läge";
 
   const $ = (id) => document.getElementById(id);
   const screens = ["start", "quiz", "result"];
 
   let state = null;
   let timerId = null;
+  let mode = "exam";
 
   // ---------- hjälpfunktioner ----------
 
@@ -49,6 +52,19 @@
     return e;
   }
 
+  function stepsList(q) {
+    const ol = el("ol", "steps");
+    q.steps.forEach((s) => ol.appendChild(el("li", "", s)));
+    return ol;
+  }
+
+  function setMode(m) {
+    mode = m;
+    document.querySelectorAll(".mode").forEach((b) =>
+      b.setAttribute("aria-checked", String(b.dataset.mode === m)));
+    try { localStorage.setItem(MODE_KEY, m); } catch { /* ignorera */ }
+  }
+
   // ---------- provet ----------
 
   function pickQuestions(level) {
@@ -64,7 +80,13 @@
 
   function startTest(level) {
     const qs = pickQuestions(level).map((q) => ({ q, order: shuffle([0, 1, 2]) }));
-    state = { level, items: qs, answers: Array(qs.length).fill(null), idx: 0, start: Date.now() };
+    state = {
+      level, mode, items: qs, idx: 0, start: Date.now(),
+      answers: Array(qs.length).fill(null),
+      hints: Array(qs.length).fill(false),
+    };
+    $("q-mode").textContent = MODE_NAMES[mode];
+    $("train-tools").hidden = mode !== "train";
     buildDots();
     show("quiz");
     renderQuestion();
@@ -76,6 +98,9 @@
   function renderQuestion() {
     const { items, idx, answers } = state;
     const { q, order } = items[idx];
+    const training = state.mode === "train";
+    const picked = answers[idx];
+    const locked = training && picked !== null;
     $("q-counter").textContent = `Fråga ${idx + 1} av ${items.length}`;
     $("q-progress").style.width = `${(answers.filter((a) => a !== null).length / items.length) * 100}%`;
     $("q-course").textContent = "Matte " + q.course;
@@ -85,11 +110,23 @@
     const box = $("q-choices");
     box.innerHTML = "";
     order.forEach((choiceIdx, pos) => {
-      const b = el("button", "choice" + (answers[idx] === choiceIdx ? " selected" : ""));
-      b.innerHTML = `<span class="letter">${LETTERS[pos]}</span><span>${q.choices[choiceIdx]}</span>`;
+      let cls = "choice";
+      let tag = "";
+      if (locked) {
+        if (choiceIdx === 0) { cls += " correct"; tag = picked === 0 ? "Ditt svar ✓" : "Rätt svar"; }
+        else if (choiceIdx === picked) { cls += " picked-wrong"; tag = "Ditt svar"; }
+      } else if (picked === choiceIdx) {
+        cls += " selected";
+      }
+      const b = el("button", cls);
+      b.innerHTML = `<span class="letter">${LETTERS[pos]}</span><span>${q.choices[choiceIdx]}</span>` +
+        (tag ? `<span class="tag">${tag}</span>` : "");
+      b.disabled = locked;
       b.addEventListener("click", () => choose(choiceIdx));
       box.appendChild(b);
     });
+
+    if (training) renderTraining(q, picked);
 
     $("prev").disabled = idx === 0;
     $("next").textContent = idx === items.length - 1 ? "Klar ✓" : "Nästa →";
@@ -99,7 +136,33 @@
     math(box);
   }
 
+  function renderTraining(q, picked) {
+    const hintBox = $("hint-box");
+    const shown = state.hints[state.idx];
+    hintBox.hidden = !shown;
+    hintBox.innerHTML = shown ? `<strong>Ledtråd:</strong> ${q.hint}` : "";
+    $("hint-btn").hidden = shown || picked !== null;
+
+    const fb = $("feedback");
+    fb.hidden = picked === null;
+    fb.innerHTML = "";
+    if (picked !== null) {
+      const right = picked === 0;
+      fb.className = "feedback" + (right ? "" : " wrong");
+      fb.appendChild(el("div", "verdict", right ? "✓ Rätt!" : "✗ Inte riktigt – så här löser man den:"));
+      fb.appendChild(stepsList(q));
+    }
+    math(hintBox);
+    math(fb);
+  }
+
+  function showHint() {
+    state.hints[state.idx] = true;
+    renderQuestion();
+  }
+
   function choose(choiceIdx) {
+    if (state.mode === "train" && state.answers[state.idx] !== null) return;
     state.answers[state.idx] = choiceIdx;
     renderQuestion();
   }
@@ -154,6 +217,9 @@
     $("r-total").textContent = items.length;
     $("r-percent").textContent = `${pct} % rätt · ${LEVEL_NAMES[state.level]}`;
     $("r-time").textContent = `Tid: ${fmtTime(elapsed)}`;
+    const hintsUsed = state.hints.filter(Boolean).length;
+    $("r-hints").hidden = state.mode !== "train";
+    $("r-hints").textContent = `${MODE_NAMES.train} · ledtrådar använda: ${hintsUsed}`;
 
     // per område
     const topics = {};
@@ -174,7 +240,7 @@
       });
 
     renderReview();
-    saveHistory({ level: state.level, score, total: items.length, time: elapsed, date: Date.now() });
+    saveHistory({ level: state.level, mode: state.mode, score, total: items.length, hints: hintsUsed, time: elapsed, date: Date.now() });
     show("result");
   }
 
@@ -190,7 +256,7 @@
       const card = el("article", "card rq" + (right ? "" : " wrong"));
       const status = right ? "✓ Rätt" : picked === null ? "– Obesvarad" : "✗ Fel";
       card.appendChild(el("div", "rq-head",
-        `<span>Fråga ${i + 1} · Matte ${q.course} · ${q.topic}</span><span class="rq-status">${status}</span>`));
+        `<span>Fråga ${i + 1} · Matte ${q.course} · ${q.topic}${state.hints[i] ? ' · <span class="hint-tag">💡 ledtråd</span>' : ""}</span><span class="rq-status">${status}</span>`));
       card.appendChild(el("div", "q-text", q.q));
 
       const choices = el("div", "choices");
@@ -208,9 +274,7 @@
       const det = el("details", "solution");
       det.open = !right;
       det.appendChild(el("summary", "", "Visa uträkning"));
-      const ol = el("ol", "steps");
-      q.steps.forEach((s) => ol.appendChild(el("li", "", s)));
-      det.appendChild(ol);
+      det.appendChild(stepsList(q));
       card.appendChild(det);
 
       box.appendChild(card);
@@ -242,13 +306,16 @@
     h.forEach((r) => {
       const d = new Date(r.date).toLocaleDateString("sv-SE", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
       ul.appendChild(el("li", "",
-        `<span>${LEVEL_NAMES[r.level]} <span class="muted">· ${d}</span></span><strong>${r.score}/${r.total}</strong>`));
+        `<span>${LEVEL_NAMES[r.level]}${r.mode === "train" ? " · träning" : ""} <span class="muted">· ${d}</span></span><strong>${r.score}/${r.total}</strong>`));
     });
     box.appendChild(ul);
   }
 
   // ---------- händelser ----------
 
+  document.querySelectorAll(".mode").forEach((b) =>
+    b.addEventListener("click", () => setMode(b.dataset.mode)));
+  $("hint-btn").addEventListener("click", showHint);
   document.querySelectorAll(".level").forEach((b) =>
     b.addEventListener("click", () => startTest(b.dataset.level)));
   $("prev").addEventListener("click", () => go(-1));
@@ -269,9 +336,13 @@
     const k = e.key.toLowerCase();
     const pos = { 1: 0, 2: 1, 3: 2, a: 0, b: 1, c: 2 }[k];
     if (pos !== undefined) choose(state.items[state.idx].order[pos]);
+    else if (k === "h" && state.mode === "train" && state.answers[state.idx] === null) showHint();
     else if (e.key === "ArrowRight") go(1);
     else if (e.key === "ArrowLeft") go(-1);
   });
 
+  let savedMode = "exam";
+  try { savedMode = localStorage.getItem(MODE_KEY) === "train" ? "train" : "exam"; } catch { /* ignorera */ }
+  setMode(savedMode);
   renderHistory();
 })();

@@ -13,6 +13,7 @@ window.QUESTIONS = [
    "\\((x + 1)^2 = x^2 + 2 \\cdot x \\cdot 1 + 1^2\\)",
    "\\(= x^{2} + 2x + 1\\)"
   ],
+  "hint": "Använd kvadreringsregeln \\((a+b)^2 = a^2 + 2ab + b^2\\). Glöm inte dubbla produkten \\(2ab\\).",
   "course": "2c",
   "id": "A001"
  },
@@ -28,6 +29,7 @@ window.QUESTIONS = [
    "Konjugatregeln: \\((p+q)(p-q) = p^2 - q^2\\).",
    "\\((4x + 9)(4x - 9) = (4x)^2 - 9^2 = 16x^{2} - 81\\)"
   ],
+  "hint": "Känner du igen konjugatregeln \\((a+b)(a-b) = a^2 - b^2\\)? Mittentermerna tar ut varandra.",
   "course": "2c",
   "id": "A002"
  },
@@ -44,6 +46,7 @@ window.QUESTIONS = [
    "\\(x^{2} - 12x + 36 = x^2 + 2 \\cdot x \\cdot (-6) + (-6)^2\\)",
    "\\(= (x - 6)^2\\)"
   ],
+  "hint": "Leta först efter en gemensam faktor att bryta ut. Försök sedan känna igen kvadrerings- eller konjugatregeln baklänges.",
   "course": "2c",
   "id": "A003"
  },
@@ -61,6 +64,7 @@ window.QUESTIONS = [
    "\\(x = 3 \\pm \\sqrt{3^2 - (-16)} = 3 \\pm \\sqrt{25} = 3 \\pm 5\\)",
    "\\(x_1 = -2\\) och \\(x_2 = 8\\)."
   ],
+  "hint": "Se till att \\(x^2\\)-termen har koefficienten 1 (dela annars hela ekvationen), läs av \\(p\\) och \\(q\\) och använd pq-formeln.",
   "course": "2c",
   "id": "A004"
  },
@@ -77,6 +81,7 @@ window.QUESTIONS = [
    "Dela med \\(5\\): \\(x^2 = 81\\).",
    "Dra roten ur – glöm inte den negativa roten: \\(x = \\pm\\sqrt{81} = \\pm 9\\)."
   ],
+  "hint": "Det finns ingen \\(x\\)-term. Isolera \\(x^2\\) och dra roten ur – kom ihåg att det blir två lösningar.",
   "course": "2c",
   "id": "A005"
  },
@@ -93,6 +98,7 @@ window.QUESTIONS = [
    "Nollproduktmetoden: en produkt är noll om någon faktor är noll.",
    "\\(x = 0\\) eller \\(4x + 4 = 0\\) \\(\\Rightarrow x = -1\\)."
   ],
+  "hint": "Det finns ingen konstantterm. Bryt ut \\(x\\) och använd nollproduktmetoden.",
   "course": "2c",
   "id": "A006"
  },
@@ -110,6 +116,7 @@ window.QUESTIONS = [
    "\\(-6x - 11 = 19 \\;\\Rightarrow\\; -6x = 30 \\;\\Rightarrow\\; x = -5\\)",
    "Sätt in \\(x = -5\\): \\(y = -3 \\cdot (-5) - 11 = 4\\)."
   ],
+  "hint": "Ena ekvationen ger redan \\(y\\) uttryckt i \\(x\\). Sätt in det uttrycket i den andra ekvationen.",
   "course": "2c",
   "id": "A007"
  },
@@ -126,6 +133,7 @@ window.QUESTIONS = [
    "\\(4x = -2 + (-14) = -16 \\;\\Rightarrow\\; x = -4\\)",
    "Sätt in i första ekvationen: \\((-4) + y = -2\\) \\(\\Rightarrow y = -2 - (-4) = 2\\)."
   ],
+  "hint": "Titta på \\(y\\)-termerna: \\(+y\\) och \\(-y\\). Vad händer om du adderar ekvationerna?",
   "course": "2c",
   "id": "A008"
  },
@@ -141,6 +149,7 @@ window.QUESTIONS = [
    "Riktningskoefficienten: \\(k = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}\\).",
    "\\(k = \\frac{-3 - 4}{-1 - 1} = \\frac{-7}{-2} = \\frac{7}{2}\\)"
   ],
+  "hint": "\\(k = \\frac{\\Delta y}{\\Delta x}\\). Subtrahera i samma ordning i täljare och nämnare.",
   "course": "2c",
   "id": "A009"
  },
@@ -157,6 +166,7 @@ window.QUESTIONS = [
    "Sätt in punkten \\((1,\\ 2)\\) i \\(y = 2x + m\\): \\(2 = 2 \\cdot 1 + m\\).",
    "\\(m = 2 - 2 = 0\\), alltså \\(y = 2x\\)."
   ],
+  "hint": "Räkna först ut \\(k\\) med de två punkterna. Sätt sedan in en av punkterna i \\(y = kx + m\\) för att få \\(m\\).",
   "course": "2c",
   "id": "A010"
  },
@@ -173,6 +183,7 @@ window.QUESTIONS = [
    "\\(\\lg 1\\,000\\,000 = \\lg 10^{6} = 6\\) och \\(\\lg 100 = \\lg 10^{2} = 2\\)",
    "\\(6 + 2 = 8\\)"
   ],
+  "hint": "Skriv talen som tiopotenser och använd att \\(\\lg 10^n = n\\).",
   "course": "2c",
   "id": "A011"
  },
@@ -188,6 +199,7 @@ window.QUESTIONS = [
    "Definitionen av logaritm: \\(\\lg x = n \\;\\Leftrightarrow\\; x = 10^n\\).",
    "\\(x = 10^{-2} = 0{,}01\\)"
   ],
+  "hint": "\\(\\lg x = n\\) betyder att \\(10^n = x\\).",
   "course": "2c",
   "id": "A012"
  },
@@ -203,6 +215,7 @@ window.QUESTIONS = [
    "Dela med \\(6\\): \\(10^x = \\frac{12}{6} = 2\\).",
    "Logaritmera: \\(x = \\lg 2 \\approx 0{,}301\\)."
   ],
+  "hint": "Isolera först tiopotensen genom att dela, logaritmera sedan med \\(\\lg\\).",
   "course": "2c",
   "id": "A013"
  },
@@ -219,6 +232,7 @@ window.QUESTIONS = [
    "Skriv högerledet som en potens av \\(4\\): \\(64 = 4^{3}\\).",
    "Samma bas ger samma exponent: \\(x = 3\\)."
   ],
+  "hint": "Dela bort koefficienten framför potensen (om det finns en) och skriv högerledet som en potens med samma bas.",
   "course": "2c",
   "id": "A014"
  },
@@ -235,6 +249,7 @@ window.QUESTIONS = [
    "Logaritmera båda leden: \\(x \\cdot \\lg 1{,}08 = \\lg 2\\).",
    "\\(x = \\frac{\\lg 2}{\\lg 1{,}08} \\approx 9{,}0\\) år."
   ],
+  "hint": "Ställ upp \\((\\text{förändringsfaktor})^x = 2\\) (eller \\(0{,}5\\)). Logaritmera båda leden och använd \\(\\lg a^x = x \\lg a\\).",
   "course": "2c",
   "id": "A015"
  },
@@ -250,6 +265,7 @@ window.QUESTIONS = [
    "En minskning med 10 % ger förändringsfaktorn \\(0{,}90\\).",
    "Efter 10 år: \\(39\\,000 \\cdot 0{,}90^{10} \\approx 13\\,598\\) kr."
   ],
+  "hint": "Gör om procenten till en förändringsfaktor (t.ex. +5 % → \\(1{,}05\\), −5 % → \\(0{,}95\\)) och upphöj till antalet år.",
   "course": "2c",
   "id": "A016"
  },
@@ -267,6 +283,7 @@ window.QUESTIONS = [
    "\\(f(3) = 2 \\cdot 3^{2} - 12 \\cdot 3 + 6 = -12\\)",
    "Positiv \\(x^2\\)-koefficient ger en minimipunkt: \\((3,\\ -12)\\)."
   ],
+  "hint": "Extrempunkten ligger på symmetrilinjen \\(x = -\\frac{b}{2a}\\). Sätt sedan in x-värdet i funktionen.",
   "course": "2c",
   "id": "A017"
  },
@@ -282,6 +299,7 @@ window.QUESTIONS = [
    "Avståndsformeln: \\(d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\\).",
    "\\(d = \\sqrt{(-4 - 4)^2 + (-13 - 2)^2} = \\sqrt{(-8)^2 + (-15)^2} = \\sqrt{289} = 17\\)"
   ],
+  "hint": "Tänk dig en rätvinklig triangel mellan punkterna och använd Pythagoras sats (avståndsformeln).",
   "course": "2c",
   "id": "A018"
  },
@@ -297,6 +315,7 @@ window.QUESTIONS = [
    "Mittpunktsformeln: \\(\\left(\\frac{x_1 + x_2}{2},\\ \\frac{y_1 + y_2}{2}\\right)\\).",
    "\\(\\left(\\frac{8 + (-8)}{2},\\ \\frac{8 + (-1)}{2}\\right) = (0,\\ \\frac{7}{2})\\)"
   ],
+  "hint": "Mittpunkten är medelvärdet av x-koordinaterna och medelvärdet av y-koordinaterna.",
   "course": "2c",
   "id": "A019"
  },
@@ -312,6 +331,7 @@ window.QUESTIONS = [
    "Triangeln har en sida som är diameter, så vinkeln mitt emot den är en randvinkel på en halvcirkel: \\(90^\\circ\\) (Thales sats).",
    "Vinkelsumman i en triangel är \\(180^\\circ\\): \\(180^\\circ - 90^\\circ - 67^\\circ = 23^\\circ\\)"
   ],
+  "hint": "Randvinkelsatsen: randvinkeln är hälften av medelpunktsvinkeln på samma båge. En randvinkel som står på en diameter är \\(90^\\circ\\).",
   "course": "2c",
   "id": "A020"
  },
@@ -328,6 +348,7 @@ window.QUESTIONS = [
    "\\(\\text{Skala} = \\frac{DE}{AB} = \\frac{18}{12} = 1{,}5\\)",
    "\\(EF = 11 \\cdot 1{,}5 = 16{,}5\\) cm"
   ],
+  "hint": "Bestäm skalan mellan trianglarna med två sidor som motsvarar varandra. Multiplicera sedan den sökta sidans motsvarighet med skalan.",
   "course": "2c",
   "id": "A021"
  },
@@ -343,6 +364,7 @@ window.QUESTIONS = [
    "Areaskalan är längdskalan i kvadrat.",
    "\\(24 \\cdot 2^2 = 96\\) cm²"
   ],
+  "hint": "Om längdskalan är \\(k\\) blir areaskalan \\(k^2\\) och volymskalan \\(k^3\\).",
   "course": "2c",
   "id": "A022"
  },
@@ -358,6 +380,7 @@ window.QUESTIONS = [
    "Sortera talen: \\(4,\\ 5,\\ 8,\\ 9,\\ 15,\\ 16,\\ 16,\\ 18\\).",
    "\\(\\frac{9 + 15}{2} = 12\\)"
   ],
+  "hint": "Medelvärde: summan delat med antalet. Median: sortera talen först och ta det mittersta (eller medelvärdet av de två mittersta).",
   "course": "2c",
   "id": "A023"
  },
@@ -373,6 +396,7 @@ window.QUESTIONS = [
    "Potenslagar: \\(x^m \\cdot x^n = x^{m+n}\\) och \\(\\frac{x^m}{x^n} = x^{m-n}\\).",
    "\\(x^{6+9-8} = x^{7}\\)"
   ],
+  "hint": "Potenslagarna: \\(x^a \\cdot x^b = x^{a+b}\\), \\(\\frac{x^a}{x^b} = x^{a-b}\\) och \\((x^a)^b = x^{ab}\\).",
   "course": "2c",
   "id": "A024"
  },
@@ -389,6 +413,7 @@ window.QUESTIONS = [
    "\\((2x - 1)^2 = (2x)^2 + 2 \\cdot 2x \\cdot (-1) + (-1)^2\\)",
    "\\(= 4x^{2} - 4x + 1\\)"
   ],
+  "hint": "Använd kvadreringsregeln \\((a+b)^2 = a^2 + 2ab + b^2\\). Glöm inte dubbla produkten \\(2ab\\).",
   "course": "2c",
   "id": "A025"
  },
@@ -404,6 +429,7 @@ window.QUESTIONS = [
    "Konjugatregeln: \\((p+q)(p-q) = p^2 - q^2\\).",
    "\\((x + 1)(x - 1) = x^2 - 1^2 = x^{2} - 1\\)"
   ],
+  "hint": "Känner du igen konjugatregeln \\((a+b)(a-b) = a^2 - b^2\\)? Mittentermerna tar ut varandra.",
   "course": "2c",
   "id": "A026"
  },
@@ -420,6 +446,7 @@ window.QUESTIONS = [
    "Konjugatregeln baklänges: \\(x^2 - 25 = x^2 - 5^2 = (x+5)(x-5)\\).",
    "Alltså \\(5x^{2} - 125 = 5(x+5)(x-5)\\)."
   ],
+  "hint": "Leta först efter en gemensam faktor att bryta ut. Försök sedan känna igen kvadrerings- eller konjugatregeln baklänges.",
   "course": "2c",
   "id": "A027"
  },
@@ -436,6 +463,7 @@ window.QUESTIONS = [
    "\\(x = 4 \\pm \\sqrt{4^2 - 12} = 4 \\pm \\sqrt{4} = 4 \\pm 2\\)",
    "\\(x_1 = 2\\) och \\(x_2 = 6\\)."
   ],
+  "hint": "Se till att \\(x^2\\)-termen har koefficienten 1 (dela annars hela ekvationen), läs av \\(p\\) och \\(q\\) och använd pq-formeln.",
   "course": "2c",
   "id": "A028"
  },
@@ -452,6 +480,7 @@ window.QUESTIONS = [
    "Dela med \\(3\\): \\(x^2 = 81\\).",
    "Dra roten ur – glöm inte den negativa roten: \\(x = \\pm\\sqrt{81} = \\pm 9\\)."
   ],
+  "hint": "Det finns ingen \\(x\\)-term. Isolera \\(x^2\\) och dra roten ur – kom ihåg att det blir två lösningar.",
   "course": "2c",
   "id": "A029"
  },
@@ -468,6 +497,7 @@ window.QUESTIONS = [
    "Nollproduktmetoden: en produkt är noll om någon faktor är noll.",
    "\\(x = 0\\) eller \\(4x - 32 = 0\\) \\(\\Rightarrow x = 8\\)."
   ],
+  "hint": "Det finns ingen konstantterm. Bryt ut \\(x\\) och använd nollproduktmetoden.",
   "course": "2c",
   "id": "A030"
  },
@@ -485,6 +515,7 @@ window.QUESTIONS = [
    "\\(-3x - 1 = -7 \\;\\Rightarrow\\; -3x = -6 \\;\\Rightarrow\\; x = 2\\)",
    "Sätt in \\(x = 2\\): \\(y = 2 - 1 = 1\\)."
   ],
+  "hint": "Ena ekvationen ger redan \\(y\\) uttryckt i \\(x\\). Sätt in det uttrycket i den andra ekvationen.",
   "course": "2c",
   "id": "A031"
  },
@@ -501,6 +532,7 @@ window.QUESTIONS = [
    "\\(3x = 2 + (-2) = 0 \\;\\Rightarrow\\; x = 0\\)",
    "Sätt in i första ekvationen: \\(0 + y = 2\\) \\(\\Rightarrow y = 2 - 0 = 2\\)."
   ],
+  "hint": "Titta på \\(y\\)-termerna: \\(+y\\) och \\(-y\\). Vad händer om du adderar ekvationerna?",
   "course": "2c",
   "id": "A032"
  },
@@ -516,6 +548,7 @@ window.QUESTIONS = [
    "Riktningskoefficienten: \\(k = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}\\).",
    "\\(k = \\frac{2 - 5}{6 - 5} = \\frac{-3}{1} = -3\\)"
   ],
+  "hint": "\\(k = \\frac{\\Delta y}{\\Delta x}\\). Subtrahera i samma ordning i täljare och nämnare.",
   "course": "2c",
   "id": "A033"
  },
@@ -532,6 +565,7 @@ window.QUESTIONS = [
    "Sätt in punkten \\((2,\\ 3)\\) i \\(y = 3x + m\\): \\(3 = 3 \\cdot 2 + m\\).",
    "\\(m = 3 - 6 = -3\\), alltså \\(y = 3x - 3\\)."
   ],
+  "hint": "Räkna först ut \\(k\\) med de två punkterna. Sätt sedan in en av punkterna i \\(y = kx + m\\) för att få \\(m\\).",
   "course": "2c",
   "id": "A034"
  },
@@ -547,6 +581,7 @@ window.QUESTIONS = [
    "Två linjer är vinkelräta om \\(k_1 \\cdot k_2 = -1\\).",
    "\\(2 \\cdot k_2 = -1 \\;\\Rightarrow\\; k_2 = \\frac{-1}{2} = -\\frac{1}{2}\\)"
   ],
+  "hint": "Parallella linjer har samma \\(k\\). Vinkelräta linjer uppfyller \\(k_1 \\cdot k_2 = -1\\).",
   "course": "2c",
   "id": "A035"
  },
@@ -563,6 +598,7 @@ window.QUESTIONS = [
    "\\(\\lg 100\\,000 = \\lg 10^{5} = 5\\) och \\(\\lg 1\\,000 = \\lg 10^{3} = 3\\)",
    "\\(5 + 3 = 8\\)"
   ],
+  "hint": "Skriv talen som tiopotenser och använd att \\(\\lg 10^n = n\\).",
   "course": "2c",
   "id": "A036"
  },
@@ -578,6 +614,7 @@ window.QUESTIONS = [
    "Definitionen av logaritm: \\(\\lg x = n \\;\\Leftrightarrow\\; x = 10^n\\).",
    "\\(x = 10^{4} = 10\\,000\\)"
   ],
+  "hint": "\\(\\lg x = n\\) betyder att \\(10^n = x\\).",
   "course": "2c",
   "id": "A037"
  },
@@ -593,6 +630,7 @@ window.QUESTIONS = [
    "Dela med \\(8\\): \\(10^x = \\frac{32}{8} = 4\\).",
    "Logaritmera: \\(x = \\lg 4 \\approx 0{,}602\\)."
   ],
+  "hint": "Isolera först tiopotensen genom att dela, logaritmera sedan med \\(\\lg\\).",
   "course": "2c",
   "id": "A038"
  },
@@ -608,6 +646,7 @@ window.QUESTIONS = [
    "Skriv högerledet som en potens av \\(5\\): \\(25 = 5^{2}\\).",
    "Samma bas ger samma exponent: \\(x = 2\\)."
   ],
+  "hint": "Dela bort koefficienten framför potensen (om det finns en) och skriv högerledet som en potens med samma bas.",
   "course": "2c",
   "id": "A039"
  },
@@ -624,6 +663,7 @@ window.QUESTIONS = [
    "Logaritmera båda leden: \\(x \\cdot \\lg 1{,}02 = \\lg 2\\).",
    "\\(x = \\frac{\\lg 2}{\\lg 1{,}02} \\approx 35{,}0\\) år."
   ],
+  "hint": "Ställ upp \\((\\text{förändringsfaktor})^x = 2\\) (eller \\(0{,}5\\)). Logaritmera båda leden och använd \\(\\lg a^x = x \\lg a\\).",
   "course": "2c",
   "id": "A040"
  },
@@ -639,6 +679,7 @@ window.QUESTIONS = [
    "En minskning med 15 % ger förändringsfaktorn \\(0{,}85\\).",
    "Efter 4 år: \\(36\\,500 \\cdot 0{,}85^{4} \\approx 19\\,053\\) kr."
   ],
+  "hint": "Gör om procenten till en förändringsfaktor (t.ex. +5 % → \\(1{,}05\\), −5 % → \\(0{,}95\\)) och upphöj till antalet år.",
   "course": "2c",
   "id": "A041"
  },
@@ -656,6 +697,7 @@ window.QUESTIONS = [
    "\\(f(-2) = (-2)^{2} + 4 \\cdot (-2) - 6 = -10\\)",
    "Positiv \\(x^2\\)-koefficient ger en minimipunkt: \\((-2,\\ -10)\\)."
   ],
+  "hint": "Extrempunkten ligger på symmetrilinjen \\(x = -\\frac{b}{2a}\\). Sätt sedan in x-värdet i funktionen.",
   "course": "2c",
   "id": "A042"
  },
@@ -671,6 +713,7 @@ window.QUESTIONS = [
    "Avståndsformeln: \\(d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\\).",
    "\\(d = \\sqrt{(-6 - (-3))^2 + (-9 - (-5))^2} = \\sqrt{(-3)^2 + (-4)^2} = \\sqrt{25} = 5\\)"
   ],
+  "hint": "Tänk dig en rätvinklig triangel mellan punkterna och använd Pythagoras sats (avståndsformeln).",
   "course": "2c",
   "id": "A043"
  },
@@ -686,6 +729,7 @@ window.QUESTIONS = [
    "Mittpunktsformeln: \\(\\left(\\frac{x_1 + x_2}{2},\\ \\frac{y_1 + y_2}{2}\\right)\\).",
    "\\(\\left(\\frac{2 + (-4)}{2},\\ \\frac{7 + (-1)}{2}\\right) = (-1,\\ 3)\\)"
   ],
+  "hint": "Mittpunkten är medelvärdet av x-koordinaterna och medelvärdet av y-koordinaterna.",
   "course": "2c",
   "id": "A044"
  },
@@ -701,6 +745,7 @@ window.QUESTIONS = [
    "Randvinkelsatsen: medelpunktsvinkeln är dubbelt så stor som randvinkeln på samma båge.",
    "\\(2 \\cdot 36^\\circ = 72^\\circ\\)"
   ],
+  "hint": "Randvinkelsatsen: randvinkeln är hälften av medelpunktsvinkeln på samma båge. En randvinkel som står på en diameter är \\(90^\\circ\\).",
   "course": "2c",
   "id": "A045"
  },
@@ -717,6 +762,7 @@ window.QUESTIONS = [
    "\\(\\text{Skala} = \\frac{DE}{AB} = \\frac{40}{10} = 4\\)",
    "\\(EF = 7 \\cdot 4 = 28\\) cm"
   ],
+  "hint": "Bestäm skalan mellan trianglarna med två sidor som motsvarar varandra. Multiplicera sedan den sökta sidans motsvarighet med skalan.",
   "course": "2c",
   "id": "A046"
  },
@@ -732,6 +778,7 @@ window.QUESTIONS = [
    "Areaskalan är längdskalan i kvadrat.",
    "\\(8 \\cdot 2^2 = 32\\) cm²"
   ],
+  "hint": "Om längdskalan är \\(k\\) blir areaskalan \\(k^2\\) och volymskalan \\(k^3\\).",
   "course": "2c",
   "id": "A047"
  },
@@ -747,6 +794,7 @@ window.QUESTIONS = [
    "Sortera talen: \\(5,\\ 10,\\ 13,\\ 14,\\ 17,\\ 19\\).",
    "\\(\\frac{13 + 14}{2} = 13{,}5\\)"
   ],
+  "hint": "Medelvärde: summan delat med antalet. Median: sortera talen först och ta det mittersta (eller medelvärdet av de två mittersta).",
   "course": "2c",
   "id": "A048"
  },
@@ -762,6 +810,7 @@ window.QUESTIONS = [
    "Potenslagar: \\((x^m)^n = x^{mn}\\) och \\(x^m \\cdot x^n = x^{m+n}\\).",
    "\\(x^{5 \\cdot 8 + 2} = x^{42}\\)"
   ],
+  "hint": "Potenslagarna: \\(x^a \\cdot x^b = x^{a+b}\\), \\(\\frac{x^a}{x^b} = x^{a-b}\\) och \\((x^a)^b = x^{ab}\\).",
   "course": "2c",
   "id": "A049"
  },
@@ -778,6 +827,7 @@ window.QUESTIONS = [
    "\\((3x - 7)^2 = (3x)^2 + 2 \\cdot 3x \\cdot (-7) + (-7)^2\\)",
    "\\(= 9x^{2} - 42x + 49\\)"
   ],
+  "hint": "Använd kvadreringsregeln \\((a+b)^2 = a^2 + 2ab + b^2\\). Glöm inte dubbla produkten \\(2ab\\).",
   "course": "2c",
   "id": "A050"
  },
@@ -793,6 +843,7 @@ window.QUESTIONS = [
    "Konjugatregeln: \\((p+q)(p-q) = p^2 - q^2\\).",
    "\\((x + 6)(x - 6) = x^2 - 6^2 = x^{2} - 36\\)"
   ],
+  "hint": "Känner du igen konjugatregeln \\((a+b)(a-b) = a^2 - b^2\\)? Mittentermerna tar ut varandra.",
   "course": "2c",
   "id": "A051"
  },
@@ -809,6 +860,7 @@ window.QUESTIONS = [
    "\\(x^{2} - 18x + 81 = x^2 + 2 \\cdot x \\cdot (-9) + (-9)^2\\)",
    "\\(= (x - 9)^2\\)"
   ],
+  "hint": "Leta först efter en gemensam faktor att bryta ut. Försök sedan känna igen kvadrerings- eller konjugatregeln baklänges.",
   "course": "2c",
   "id": "A052"
  },
@@ -826,6 +878,7 @@ window.QUESTIONS = [
    "\\(x = -1 \\pm \\sqrt{(-1)^2 - (-63)} = -1 \\pm \\sqrt{64} = -1 \\pm 8\\)",
    "\\(x_1 = -9\\) och \\(x_2 = 7\\)."
   ],
+  "hint": "Se till att \\(x^2\\)-termen har koefficienten 1 (dela annars hela ekvationen), läs av \\(p\\) och \\(q\\) och använd pq-formeln.",
   "course": "2c",
   "id": "A053"
  },
@@ -842,6 +895,7 @@ window.QUESTIONS = [
    "Dela med \\(3\\): \\(x^2 = 36\\).",
    "Dra roten ur – glöm inte den negativa roten: \\(x = \\pm\\sqrt{36} = \\pm 6\\)."
   ],
+  "hint": "Det finns ingen \\(x\\)-term. Isolera \\(x^2\\) och dra roten ur – kom ihåg att det blir två lösningar.",
   "course": "2c",
   "id": "A054"
  },
@@ -858,6 +912,7 @@ window.QUESTIONS = [
    "Nollproduktmetoden: en produkt är noll om någon faktor är noll.",
    "\\(x = 0\\) eller \\(4x - 8 = 0\\) \\(\\Rightarrow x = 2\\)."
   ],
+  "hint": "Det finns ingen konstantterm. Bryt ut \\(x\\) och använd nollproduktmetoden.",
   "course": "2c",
   "id": "A055"
  },
@@ -875,6 +930,7 @@ window.QUESTIONS = [
    "\\(4x - 6 = -22 \\;\\Rightarrow\\; 4x = -16 \\;\\Rightarrow\\; x = -4\\)",
    "Sätt in \\(x = -4\\): \\(y = (-4) + 6 = 2\\)."
   ],
+  "hint": "Ena ekvationen ger redan \\(y\\) uttryckt i \\(x\\). Sätt in det uttrycket i den andra ekvationen.",
   "course": "2c",
   "id": "A056"
  },
@@ -891,6 +947,7 @@ window.QUESTIONS = [
    "\\(4x = -5 + (-7) = -12 \\;\\Rightarrow\\; x = -3\\)",
    "Sätt in i första ekvationen: \\(3 \\cdot (-3) + y = -5\\) \\(\\Rightarrow y = -5 - (-9) = 4\\)."
   ],
+  "hint": "Titta på \\(y\\)-termerna: \\(+y\\) och \\(-y\\). Vad händer om du adderar ekvationerna?",
   "course": "2c",
   "id": "A057"
  },
@@ -906,6 +963,7 @@ window.QUESTIONS = [
    "Riktningskoefficienten: \\(k = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}\\).",
    "\\(k = \\frac{1 - 3}{-1 - 0} = \\frac{-2}{-1} = 2\\)"
   ],
+  "hint": "\\(k = \\frac{\\Delta y}{\\Delta x}\\). Subtrahera i samma ordning i täljare och nämnare.",
   "course": "2c",
   "id": "A058"
  },
@@ -922,6 +980,7 @@ window.QUESTIONS = [
    "Sätt in punkten \\((4,\\ -10)\\) i \\(y = -x + m\\): \\(-10 = -1 \\cdot 4 + m\\).",
    "\\(m = -10 - (-4) = -6\\), alltså \\(y = -x - 6\\)."
   ],
+  "hint": "Räkna först ut \\(k\\) med de två punkterna. Sätt sedan in en av punkterna i \\(y = kx + m\\) för att få \\(m\\).",
   "course": "2c",
   "id": "A059"
  },
@@ -937,6 +996,7 @@ window.QUESTIONS = [
    "Parallella linjer har samma riktningskoefficient.",
    "\\(k = -5\\)"
   ],
+  "hint": "Parallella linjer har samma \\(k\\). Vinkelräta linjer uppfyller \\(k_1 \\cdot k_2 = -1\\).",
   "course": "2c",
   "id": "A060"
  },
@@ -953,6 +1013,7 @@ window.QUESTIONS = [
    "\\(\\lg 0{,}001 = \\lg 10^{-3} = -3\\) och \\(\\lg 1\\,000\\,000 = \\lg 10^{6} = 6\\)",
    "\\(-3 + 6 = 3\\)"
   ],
+  "hint": "Skriv talen som tiopotenser och använd att \\(\\lg 10^n = n\\).",
   "course": "2c",
   "id": "A061"
  },
@@ -968,6 +1029,7 @@ window.QUESTIONS = [
    "Definitionen av logaritm: \\(\\lg x = n \\;\\Leftrightarrow\\; x = 10^n\\).",
    "\\(x = 10^{5} = 100\\,000\\)"
   ],
+  "hint": "\\(\\lg x = n\\) betyder att \\(10^n = x\\).",
   "course": "2c",
   "id": "A062"
  },
@@ -983,6 +1045,7 @@ window.QUESTIONS = [
    "Dela med \\(5\\): \\(10^x = \\frac{45}{5} = 9\\).",
    "Logaritmera: \\(x = \\lg 9 \\approx 0{,}954\\)."
   ],
+  "hint": "Isolera först tiopotensen genom att dela, logaritmera sedan med \\(\\lg\\).",
   "course": "2c",
   "id": "A063"
  },
@@ -999,6 +1062,7 @@ window.QUESTIONS = [
    "Skriv högerledet som en potens av \\(2\\): \\(8 = 2^{3}\\).",
    "Samma bas ger samma exponent: \\(x = 3\\)."
   ],
+  "hint": "Dela bort koefficienten framför potensen (om det finns en) och skriv högerledet som en potens med samma bas.",
   "course": "2c",
   "id": "A064"
  },
@@ -1015,6 +1079,7 @@ window.QUESTIONS = [
    "Logaritmera båda leden: \\(x \\cdot \\lg 0{,}88 = \\lg 0{,}5\\).",
    "\\(x = \\frac{\\lg 0{,}5}{\\lg 0{,}88} \\approx 5{,}4\\) år."
   ],
+  "hint": "Ställ upp \\((\\text{förändringsfaktor})^x = 2\\) (eller \\(0{,}5\\)). Logaritmera båda leden och använd \\(\\lg a^x = x \\lg a\\).",
   "course": "2c",
   "id": "A065"
  },
@@ -1030,6 +1095,7 @@ window.QUESTIONS = [
    "En ökning med 4 % ger förändringsfaktorn \\(1{,}04\\).",
    "Efter 5 år: \\(10\\,500 \\cdot 1{,}04^{5} \\approx 12\\,775\\) kr."
   ],
+  "hint": "Gör om procenten till en förändringsfaktor (t.ex. +5 % → \\(1{,}05\\), −5 % → \\(0{,}95\\)) och upphöj till antalet år.",
   "course": "2c",
   "id": "A066"
  },
@@ -1047,6 +1113,7 @@ window.QUESTIONS = [
    "\\(f(3) = 2 \\cdot 3^{2} - 12 \\cdot 3 + 4 = -14\\)",
    "Positiv \\(x^2\\)-koefficient ger en minimipunkt: \\((3,\\ -14)\\)."
   ],
+  "hint": "Extrempunkten ligger på symmetrilinjen \\(x = -\\frac{b}{2a}\\). Sätt sedan in x-värdet i funktionen.",
   "course": "2c",
   "id": "A067"
  },
@@ -1062,6 +1129,7 @@ window.QUESTIONS = [
    "Avståndsformeln: \\(d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\\).",
    "\\(d = \\sqrt{(-7 - (-3))^2 + (-3 - 0)^2} = \\sqrt{(-4)^2 + (-3)^2} = \\sqrt{25} = 5\\)"
   ],
+  "hint": "Tänk dig en rätvinklig triangel mellan punkterna och använd Pythagoras sats (avståndsformeln).",
   "course": "2c",
   "id": "A068"
  },
@@ -1077,6 +1145,7 @@ window.QUESTIONS = [
    "Mittpunktsformeln: \\(\\left(\\frac{x_1 + x_2}{2},\\ \\frac{y_1 + y_2}{2}\\right)\\).",
    "\\(\\left(\\frac{-3 + 6}{2},\\ \\frac{0 + 7}{2}\\right) = (\\frac{3}{2},\\ \\frac{7}{2})\\)"
   ],
+  "hint": "Mittpunkten är medelvärdet av x-koordinaterna och medelvärdet av y-koordinaterna.",
   "course": "2c",
   "id": "A069"
  },
@@ -1093,6 +1162,7 @@ window.QUESTIONS = [
    "\\(\\text{Skala} = \\frac{DE}{AB} = \\frac{18}{6} = 3\\)",
    "\\(EF = 10 \\cdot 3 = 30\\) cm"
   ],
+  "hint": "Bestäm skalan mellan trianglarna med två sidor som motsvarar varandra. Multiplicera sedan den sökta sidans motsvarighet med skalan.",
   "course": "2c",
   "id": "A070"
  },
@@ -1108,6 +1178,7 @@ window.QUESTIONS = [
    "Volymskalan är längdskalan i kubik.",
    "\\(30 \\cdot 3^3 = 810\\) cm³"
   ],
+  "hint": "Om längdskalan är \\(k\\) blir areaskalan \\(k^2\\) och volymskalan \\(k^3\\).",
   "course": "2c",
   "id": "A071"
  },
@@ -1123,6 +1194,7 @@ window.QUESTIONS = [
    "Sortera talen: \\(1,\\ 4,\\ 4,\\ 7,\\ 8,\\ 9,\\ 17,\\ 17\\).",
    "\\(\\frac{7 + 8}{2} = 7{,}5\\)"
   ],
+  "hint": "Medelvärde: summan delat med antalet. Median: sortera talen först och ta det mittersta (eller medelvärdet av de två mittersta).",
   "course": "2c",
   "id": "A072"
  },
@@ -1138,6 +1210,7 @@ window.QUESTIONS = [
    "Potenslagar: \\((x^m)^n = x^{mn}\\) och \\(x^m \\cdot x^n = x^{m+n}\\).",
    "\\(x^{9 \\cdot 7 + 8} = x^{71}\\)"
   ],
+  "hint": "Potenslagarna: \\(x^a \\cdot x^b = x^{a+b}\\), \\(\\frac{x^a}{x^b} = x^{a-b}\\) och \\((x^a)^b = x^{ab}\\).",
   "course": "2c",
   "id": "A073"
  },
@@ -1154,6 +1227,7 @@ window.QUESTIONS = [
    "\\((x - 9)^2 = x^2 + 2 \\cdot x \\cdot (-9) + (-9)^2\\)",
    "\\(= x^{2} - 18x + 81\\)"
   ],
+  "hint": "Använd kvadreringsregeln \\((a+b)^2 = a^2 + 2ab + b^2\\). Glöm inte dubbla produkten \\(2ab\\).",
   "course": "2c",
   "id": "A074"
  },
@@ -1169,6 +1243,7 @@ window.QUESTIONS = [
    "Konjugatregeln: \\((p+q)(p-q) = p^2 - q^2\\).",
    "\\((2x + 3)(2x - 3) = (2x)^2 - 3^2 = 4x^{2} - 9\\)"
   ],
+  "hint": "Känner du igen konjugatregeln \\((a+b)(a-b) = a^2 - b^2\\)? Mittentermerna tar ut varandra.",
   "course": "2c",
   "id": "A075"
  },
@@ -1185,6 +1260,7 @@ window.QUESTIONS = [
    "Konjugatregeln baklänges: \\(x^2 - 1 = x^2 - 1^2 = (x+1)(x-1)\\).",
    "Alltså \\(3x^{2} - 3 = 3(x+1)(x-1)\\)."
   ],
+  "hint": "Leta först efter en gemensam faktor att bryta ut. Försök sedan känna igen kvadrerings- eller konjugatregeln baklänges.",
   "course": "2c",
   "id": "A076"
  },
@@ -1202,6 +1278,7 @@ window.QUESTIONS = [
    "\\(x = \\frac{7}{2} \\pm \\sqrt{\\frac{7}{2}^2 - (-8)} = \\frac{7}{2} \\pm \\sqrt{\\frac{81}{4}} = \\frac{7}{2} \\pm \\frac{9}{2}\\)",
    "\\(x_1 = -1\\) och \\(x_2 = 8\\)."
   ],
+  "hint": "Se till att \\(x^2\\)-termen har koefficienten 1 (dela annars hela ekvationen), läs av \\(p\\) och \\(q\\) och använd pq-formeln.",
   "course": "2c",
   "id": "A077"
  },
@@ -1218,6 +1295,7 @@ window.QUESTIONS = [
    "Dela med \\(2\\): \\(x^2 = 36\\).",
    "Dra roten ur – glöm inte den negativa roten: \\(x = \\pm\\sqrt{36} = \\pm 6\\)."
   ],
+  "hint": "Det finns ingen \\(x\\)-term. Isolera \\(x^2\\) och dra roten ur – kom ihåg att det blir två lösningar.",
   "course": "2c",
   "id": "A078"
  },
@@ -1234,6 +1312,7 @@ window.QUESTIONS = [
    "Nollproduktmetoden: en produkt är noll om någon faktor är noll.",
    "\\(x = 0\\) eller \\(3x + 12 = 0\\) \\(\\Rightarrow x = -4\\)."
   ],
+  "hint": "Det finns ingen konstantterm. Bryt ut \\(x\\) och använd nollproduktmetoden.",
   "course": "2c",
   "id": "A079"
  },
@@ -1251,6 +1330,7 @@ window.QUESTIONS = [
    "\\(5x + 13 = -7 \\;\\Rightarrow\\; 5x = -20 \\;\\Rightarrow\\; x = -4\\)",
    "Sätt in \\(x = -4\\): \\(y = -3 \\cdot (-4) - 13 = -1\\)."
   ],
+  "hint": "Ena ekvationen ger redan \\(y\\) uttryckt i \\(x\\). Sätt in det uttrycket i den andra ekvationen.",
   "course": "2c",
   "id": "A080"
  },
@@ -1267,6 +1347,7 @@ window.QUESTIONS = [
    "\\(3x = 1 + (-13) = -12 \\;\\Rightarrow\\; x = -4\\)",
    "Sätt in i första ekvationen: \\((-4) + y = 1\\) \\(\\Rightarrow y = 1 - (-4) = 5\\)."
   ],
+  "hint": "Titta på \\(y\\)-termerna: \\(+y\\) och \\(-y\\). Vad händer om du adderar ekvationerna?",
   "course": "2c",
   "id": "A081"
  },
@@ -1282,6 +1363,7 @@ window.QUESTIONS = [
    "Riktningskoefficienten: \\(k = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}\\).",
    "\\(k = \\frac{4 - 6}{-4 - 5} = \\frac{-2}{-9} = \\frac{2}{9}\\)"
   ],
+  "hint": "\\(k = \\frac{\\Delta y}{\\Delta x}\\). Subtrahera i samma ordning i täljare och nämnare.",
   "course": "2c",
   "id": "A082"
  },
@@ -1298,6 +1380,7 @@ window.QUESTIONS = [
    "Sätt in punkten \\((1,\\ 5)\\) i \\(y = -3x + m\\): \\(5 = -3 \\cdot 1 + m\\).",
    "\\(m = 5 - (-3) = 8\\), alltså \\(y = -3x + 8\\)."
   ],
+  "hint": "Räkna först ut \\(k\\) med de två punkterna. Sätt sedan in en av punkterna i \\(y = kx + m\\) för att få \\(m\\).",
   "course": "2c",
   "id": "A083"
  },
@@ -1313,6 +1396,7 @@ window.QUESTIONS = [
    "Parallella linjer har samma riktningskoefficient.",
    "\\(k = 4\\)"
   ],
+  "hint": "Parallella linjer har samma \\(k\\). Vinkelräta linjer uppfyller \\(k_1 \\cdot k_2 = -1\\).",
   "course": "2c",
   "id": "A084"
  },
@@ -1329,6 +1413,7 @@ window.QUESTIONS = [
    "\\(\\lg 0{,}1 = \\lg 10^{-1} = -1\\) och \\(\\lg 100 = \\lg 10^{2} = 2\\)",
    "\\(-1 + 2 = 1\\)"
   ],
+  "hint": "Skriv talen som tiopotenser och använd att \\(\\lg 10^n = n\\).",
   "course": "2c",
   "id": "A085"
  },
@@ -1344,6 +1429,7 @@ window.QUESTIONS = [
    "Definitionen av logaritm: \\(\\lg x = n \\;\\Leftrightarrow\\; x = 10^n\\).",
    "\\(x = 10^{-3} = 0{,}001\\)"
   ],
+  "hint": "\\(\\lg x = n\\) betyder att \\(10^n = x\\).",
   "course": "2c",
   "id": "A086"
  },
@@ -1359,6 +1445,7 @@ window.QUESTIONS = [
    "Dela med \\(8\\): \\(10^x = \\frac{48}{8} = 6\\).",
    "Logaritmera: \\(x = \\lg 6 \\approx 0{,}778\\)."
   ],
+  "hint": "Isolera först tiopotensen genom att dela, logaritmera sedan med \\(\\lg\\).",
   "course": "2c",
   "id": "A087"
  },
@@ -1375,6 +1462,7 @@ window.QUESTIONS = [
    "Logaritmera båda leden: \\(x \\cdot \\lg 1{,}03 = \\lg 2\\).",
    "\\(x = \\frac{\\lg 2}{\\lg 1{,}03} \\approx 23{,}4\\) år."
   ],
+  "hint": "Ställ upp \\((\\text{förändringsfaktor})^x = 2\\) (eller \\(0{,}5\\)). Logaritmera båda leden och använd \\(\\lg a^x = x \\lg a\\).",
   "course": "2c",
   "id": "A088"
  },
@@ -1390,6 +1478,7 @@ window.QUESTIONS = [
    "En minskning med 3 % ger förändringsfaktorn \\(0{,}97\\).",
    "Efter 4 år: \\(21\\,500 \\cdot 0{,}97^{4} \\approx 19\\,034\\) kr."
   ],
+  "hint": "Gör om procenten till en förändringsfaktor (t.ex. +5 % → \\(1{,}05\\), −5 % → \\(0{,}95\\)) och upphöj till antalet år.",
   "course": "2c",
   "id": "A089"
  },
@@ -1405,6 +1494,7 @@ window.QUESTIONS = [
    "Avståndsformeln: \\(d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\\).",
    "\\(d = \\sqrt{(9 - 0)^2 + (-8 - 4)^2} = \\sqrt{9^2 + (-12)^2} = \\sqrt{225} = 15\\)"
   ],
+  "hint": "Tänk dig en rätvinklig triangel mellan punkterna och använd Pythagoras sats (avståndsformeln).",
   "course": "2c",
   "id": "A090"
  },
@@ -1420,6 +1510,7 @@ window.QUESTIONS = [
    "Mittpunktsformeln: \\(\\left(\\frac{x_1 + x_2}{2},\\ \\frac{y_1 + y_2}{2}\\right)\\).",
    "\\(\\left(\\frac{-2 + 5}{2},\\ \\frac{6 + (-5)}{2}\\right) = (\\frac{3}{2},\\ \\frac{1}{2})\\)"
   ],
+  "hint": "Mittpunkten är medelvärdet av x-koordinaterna och medelvärdet av y-koordinaterna.",
   "course": "2c",
   "id": "A091"
  },
@@ -1435,6 +1526,7 @@ window.QUESTIONS = [
    "Randvinkelsatsen: medelpunktsvinkeln är dubbelt så stor som randvinkeln på samma båge.",
    "\\(2 \\cdot 84^\\circ = 168^\\circ\\)"
   ],
+  "hint": "Randvinkelsatsen: randvinkeln är hälften av medelpunktsvinkeln på samma båge. En randvinkel som står på en diameter är \\(90^\\circ\\).",
   "course": "2c",
   "id": "A092"
  },
@@ -1451,6 +1543,7 @@ window.QUESTIONS = [
    "\\(\\text{Skala} = \\frac{DE}{AB} = \\frac{3}{6} = 0{,}5\\)",
    "\\(EF = 9 \\cdot 0{,}5 = 4{,}5\\) cm"
   ],
+  "hint": "Bestäm skalan mellan trianglarna med två sidor som motsvarar varandra. Multiplicera sedan den sökta sidans motsvarighet med skalan.",
   "course": "2c",
   "id": "A093"
  },
@@ -1466,6 +1559,7 @@ window.QUESTIONS = [
    "Areaskalan är längdskalan i kvadrat.",
    "\\(20 \\cdot 4^2 = 320\\) cm²"
   ],
+  "hint": "Om längdskalan är \\(k\\) blir areaskalan \\(k^2\\) och volymskalan \\(k^3\\).",
   "course": "2c",
   "id": "A094"
  },
@@ -1481,6 +1575,7 @@ window.QUESTIONS = [
    "Sortera talen: \\(1,\\ 10,\\ 10,\\ 11,\\ 14\\).",
    "Det mittersta (nummer 3) av 5 värden är \\(10\\)."
   ],
+  "hint": "Medelvärde: summan delat med antalet. Median: sortera talen först och ta det mittersta (eller medelvärdet av de två mittersta).",
   "course": "2c",
   "id": "A095"
  },
@@ -1496,6 +1591,7 @@ window.QUESTIONS = [
    "Potenslagar: \\(x^m \\cdot x^n = x^{m+n}\\) och \\(\\frac{x^m}{x^n} = x^{m-n}\\).",
    "\\(x^{3+6-8} = x\\)"
   ],
+  "hint": "Potenslagarna: \\(x^a \\cdot x^b = x^{a+b}\\), \\(\\frac{x^a}{x^b} = x^{a-b}\\) och \\((x^a)^b = x^{ab}\\).",
   "course": "2c",
   "id": "A096"
  },
@@ -1512,6 +1608,7 @@ window.QUESTIONS = [
    "\\((x + 8)^2 = x^2 + 2 \\cdot x \\cdot 8 + 8^2\\)",
    "\\(= x^{2} + 16x + 64\\)"
   ],
+  "hint": "Använd kvadreringsregeln \\((a+b)^2 = a^2 + 2ab + b^2\\). Glöm inte dubbla produkten \\(2ab\\).",
   "course": "2c",
   "id": "A097"
  },
@@ -1527,6 +1624,7 @@ window.QUESTIONS = [
    "Konjugatregeln: \\((p+q)(p-q) = p^2 - q^2\\).",
    "\\((2x + 4)(2x - 4) = (2x)^2 - 4^2 = 4x^{2} - 16\\)"
   ],
+  "hint": "Känner du igen konjugatregeln \\((a+b)(a-b) = a^2 - b^2\\)? Mittentermerna tar ut varandra.",
   "course": "2c",
   "id": "A098"
  },
@@ -1543,6 +1641,7 @@ window.QUESTIONS = [
    "\\(x = -5 \\pm \\sqrt{(-5)^2 - 24} = -5 \\pm \\sqrt{1} = -5 \\pm 1\\)",
    "\\(x_1 = -6\\) och \\(x_2 = -4\\)."
   ],
+  "hint": "Se till att \\(x^2\\)-termen har koefficienten 1 (dela annars hela ekvationen), läs av \\(p\\) och \\(q\\) och använd pq-formeln.",
   "course": "2c",
   "id": "A099"
  },
@@ -1558,6 +1657,7 @@ window.QUESTIONS = [
    "Flytta över konstanten: \\(x^{2} = 16\\).",
    "Dra roten ur – glöm inte den negativa roten: \\(x = \\pm\\sqrt{16} = \\pm 4\\)."
   ],
+  "hint": "Det finns ingen \\(x\\)-term. Isolera \\(x^2\\) och dra roten ur – kom ihåg att det blir två lösningar.",
   "course": "2c",
   "id": "A100"
  },
@@ -1574,6 +1674,7 @@ window.QUESTIONS = [
    "\\(f'(x) = 3x^{2} + 3\\)",
    "\\(f'(-3) = 3 \\cdot (-3)^{2} + 3 = 30\\)"
   ],
+  "hint": "Derivera först hela funktionen term för term. Sätt sedan in x-värdet i \\(f'(x)\\), inte i \\(f(x)\\).",
   "course": "3c",
   "id": "B001"
  },
@@ -1589,6 +1690,7 @@ window.QUESTIONS = [
    "Deriveringsregeln \\(D(ax^n) = a \\cdot n x^{n-1}\\), och konstanten \\(3\\) försvinner.",
    "\\(f'(x) = 1\\cdot 4x^{3} + (-1) \\cdot 1 = 4x^{3} - 1\\)"
   ],
+  "hint": "\\(D(ax^n) = a \\cdot n \\cdot x^{n-1}\\), och konstanter har derivatan 0.",
   "course": "3c",
   "id": "B002"
  },
@@ -1604,6 +1706,7 @@ window.QUESTIONS = [
    "Regeln \\(D\\left(e^{kx}\\right) = k e^{kx}\\) och \\(D(x^2) = 2x\\).",
    "\\(f'(x) = (-2) \\cdot \\frac{1}{2} \\cdot e^{\\frac{1}{2}x} + 2 \\cdot 2x = -e^{\\frac{1}{2}x} + 4x\\)"
   ],
+  "hint": "\\(D(e^{kx}) = k e^{kx}\\). Derivera varje term för sig.",
   "course": "3c",
   "id": "B003"
  },
@@ -1620,6 +1723,7 @@ window.QUESTIONS = [
    "\\(f'(x) = 4 \\cdot (-1) x^{-2} = -\\frac{4}{x^2}\\)",
    "\\(f'(-2) = -\\frac{4}{(-2)^2} = -1\\)"
   ],
+  "hint": "Skriv om som potens: \\(\\sqrt{x} = x^{1/2}\\) och \\(\\frac{1}{x} = x^{-1}\\). Använd sedan deriveringsregeln för potenser.",
   "course": "3c",
   "id": "B004"
  },
@@ -1637,6 +1741,7 @@ window.QUESTIONS = [
    "Sätt in punkten i \\(y = kx + m\\): \\(1 = 2 \\cdot (-1) + m \\Rightarrow m = 3\\).",
    "Tangentens ekvation: \\(y = 2x + 3\\)."
   ],
+  "hint": "Tangenten har lutningen \\(k = f'(a)\\) och går genom punkten \\((a,\\ f(a))\\). Använd \\(y = kx + m\\).",
   "course": "3c",
   "id": "B005"
  },
@@ -1653,6 +1758,7 @@ window.QUESTIONS = [
    "\\(f''(x) = 6x\\): \\(f''(-2) = -12\\) och \\(f''(2) = 12\\).",
    "Negativ andraderivata ger maximum, positiv ger minimum. Alltså är maximipunktens x-koordinat \\(x = -2\\)."
   ],
+  "hint": "Lös \\(f'(x) = 0\\). Avgör sedan typen med andraderivatan: \\(f'' < 0\\) ger max och \\(f'' > 0\\) ger min.",
   "course": "3c",
   "id": "B006"
  },
@@ -1669,6 +1775,7 @@ window.QUESTIONS = [
    "Sätt \\(f'(x) = 0\\) och bryt ut \\(x\\): \\(x(3x + 6) = 0\\).",
    "\\(x = 0\\) eller \\(3x + 6 = 0 \\Rightarrow x = -2\\)."
   ],
+  "hint": "Stationära punkter är där \\(f'(x) = 0\\). Bryt ut \\(x\\) ur derivatan.",
   "course": "3c",
   "id": "B007"
  },
@@ -1684,6 +1791,7 @@ window.QUESTIONS = [
    "Primitiv funktion: \\(F(x) = -x^{3} + x^{2} - 3x\\).",
    "\\(\\int_{-2}^{-1} f(x)\\,dx = F(-1) - F(-2) = 5 - 18 = -13\\)"
   ],
+  "hint": "Ta fram en primitiv funktion \\(F\\) och beräkna \\(F(\\text{övre}) - F(\\text{undre})\\).",
   "course": "3c",
   "id": "B008"
  },
@@ -1699,6 +1807,7 @@ window.QUESTIONS = [
    "Regeln: en primitiv funktion till \\(x^n\\) är \\(\\frac{x^{n+1}}{n+1}\\). Glöm inte konstanten \\(C\\).",
    "\\(F(x) = 1 \\cdot \\frac{x^3}{3} + (-7) \\cdot \\frac{x^2}{2} + 7x + C = \\frac{1}{3}x^{3} - \\frac{7}{2}x^{2} + 7x + C\\)"
   ],
+  "hint": "En primitiv funktion till \\(x^n\\) är \\(\\frac{x^{n+1}}{n+1}\\). Glöm inte \\(+\\,C\\).",
   "course": "3c",
   "id": "B009"
  },
@@ -1714,6 +1823,7 @@ window.QUESTIONS = [
    "En primitiv funktion till \\(e^{kx}\\) är \\(\\frac{e^{kx}}{k}\\).",
    "\\(F(x) = 7 \\cdot \\frac{e^{4x}}{4} + C = \\frac{7}{4}e^{4x} + C\\)"
   ],
+  "hint": "En primitiv funktion till \\(e^{kx}\\) är \\(\\frac{e^{kx}}{k}\\) – kontrollera genom att derivera tillbaka.",
   "course": "3c",
   "id": "B010"
  },
@@ -1730,6 +1840,7 @@ window.QUESTIONS = [
    "\\(\\left[e^{2x}\\right]_0^{\\ln 7} = e^{2\\ln 7} - e^0 = 7^2 - 1 = 48\\)",
    "Här används att \\(e^{\\ln a} = a\\) och \\(e^0 = 1\\)."
   ],
+  "hint": "En primitiv funktion till \\(ke^{kx}\\) är \\(e^{kx}\\). Använd sedan att \\(e^{\\ln a} = a\\).",
   "course": "3c",
   "id": "B011"
  },
@@ -1746,6 +1857,7 @@ window.QUESTIONS = [
    "\\(A = \\int_{-1}^{1} (-x^{2} + 1)\\,dx = \\left[-\\frac{1}{3}x^{3} + x\\right]_{-1}^{1}\\)",
    "\\(= \\frac{2}{3} - (-\\frac{2}{3}) = \\frac{4}{3}\\) a.e."
   ],
+  "hint": "Bestäm nollställena – de är integrationsgränserna. Integrera sedan funktionen mellan dem.",
   "course": "3c",
   "id": "B012"
  },
@@ -1762,6 +1874,7 @@ window.QUESTIONS = [
    "\\(\\frac{x^{2} + x - 12}{x - 3} = \\frac{(x - 3)(x + 4)}{x - 3} = x + 4\\) (för \\(x \\neq 3\\))",
    "\\(\\lim_{x \\to 3} (x + 4) = 3 - (-4) = 7\\)"
   ],
+  "hint": "Direkt insättning ger \\(\\frac{0}{0}\\). Faktorisera täljaren och förkorta.",
   "course": "3c",
   "id": "B013"
  },
@@ -1779,6 +1892,7 @@ window.QUESTIONS = [
    "Dela med \\(h\\): \\(-h + 10\\). Låt \\(h \\to 0\\): \\(10\\).",
    "(Det är derivatans definition – svaret är \\(f'(-5)\\).)"
   ],
+  "hint": "Räkna ut \\(f(a+h) - f(a)\\), förenkla, dela med \\(h\\) och låt \\(h \\to 0\\).",
   "course": "3c",
   "id": "B014"
  },
@@ -1794,6 +1908,7 @@ window.QUESTIONS = [
    "Täljaren: \\((x + 4)^2\\) (kvadreringsregeln). Nämnaren: \\((x + 4)(x - 4)\\).",
    "Förkorta bort en faktor \\((x + 4)\\): \\(\\frac{x + 4}{x - 4}\\)."
   ],
+  "hint": "Faktorisera täljare och nämnare (konjugat- och kvadreringsregeln) och förkorta sedan gemensamma faktorer.",
   "course": "3c",
   "id": "B015"
  },
@@ -1810,6 +1925,7 @@ window.QUESTIONS = [
    "\\(f(6) = 51\\), \\(f(3) = 15\\)",
    "\\(\\frac{51 - 15}{6 - 3} = \\frac{36}{3} = 12\\)"
   ],
+  "hint": "Genomsnittlig förändringshastighet är \\(\\frac{f(b) - f(a)}{b - a}\\).",
   "course": "3c",
   "id": "B016"
  },
@@ -1826,6 +1942,7 @@ window.QUESTIONS = [
    "I kvadrant 4 är \\(\\cos\\) positiv (enhetscirkeln).",
    "\\(\\cos 30^\\circ\\) = \\(\\frac{\\sqrt{3}}{2}\\), så \\(\\cos 330^\\circ\\) = \\(\\frac{\\sqrt{3}}{2}\\)."
   ],
+  "hint": "Rita enhetscirkeln: i vilken kvadrant ligger vinkeln, och vilken är referensvinkeln (vinkeln till x-axeln)?",
   "course": "3c",
   "id": "B017"
  },
@@ -1841,6 +1958,7 @@ window.QUESTIONS = [
    "Areasatsen: \\(A = \\frac{ab \\sin C}{2}\\).",
    "\\(A = \\frac{8 \\cdot 8 \\cdot \\sin 138^\\circ}{2} \\approx 21{,}4\\) cm²"
   ],
+  "hint": "Areasatsen: \\(A = \\frac{ab \\sin C}{2}\\).",
   "course": "3c",
   "id": "B018"
  },
@@ -1857,6 +1975,7 @@ window.QUESTIONS = [
    "\\(\\cos C = \\frac{6^2 + 10^2 - 14^2}{2 \\cdot 6 \\cdot 10} = \\frac{-60}{120} = -\\frac{1}{2}\\)",
    "\\(C = 120^\\circ\\) (cosinus är negativt, så vinkeln är trubbig)."
   ],
+  "hint": "Cosinussatsen: \\(c^2 = a^2 + b^2 - 2ab \\cos C\\). Exakta värden: \\(\\cos 60^\\circ = \\frac{1}{2}\\), \\(\\cos 120^\\circ = -\\frac{1}{2}\\).",
   "course": "3c",
   "id": "B019"
  },
@@ -1872,6 +1991,7 @@ window.QUESTIONS = [
    "Sinussatsen: \\(\\frac{a}{\\sin A} = \\frac{b}{\\sin B}\\).",
    "\\(b = \\frac{15 \\cdot \\sin 69^\\circ}{\\sin 62^\\circ} \\approx 15{,}9\\) cm"
   ],
+  "hint": "Sinussatsen: \\(\\frac{a}{\\sin A} = \\frac{b}{\\sin B}\\). Lös ut \\(b\\).",
   "course": "3c",
   "id": "B020"
  },
@@ -1888,6 +2008,7 @@ window.QUESTIONS = [
    "Ta naturliga logaritmen: \\(-x = \\ln 4\\).",
    "\\(x = -\\ln 4 \\approx -1{,}386\\)"
   ],
+  "hint": "Isolera e-potensen först, ta sedan \\(\\ln\\) av båda leden.",
   "course": "3c",
   "id": "B021"
  },
@@ -1903,6 +2024,7 @@ window.QUESTIONS = [
    "Regeln: \\(D\\left(a^x\\right) = a^x \\ln a\\) (eftersom \\(a^x = e^{x \\ln a}\\)).",
    "\\(f'(x) = 2 \\cdot 10^x \\cdot \\ln 10\\)"
   ],
+  "hint": "Skriv \\(a^x = e^{x \\ln a}\\) och derivera – eller använd \\(D(a^x) = a^x \\ln a\\).",
   "course": "3c",
   "id": "B022"
  },
@@ -1918,6 +2040,7 @@ window.QUESTIONS = [
    "\\(\\ln e^{6} = 6\\), \\(\\ln 1 = 0\\) och \\(e^{\\ln 2} = 2\\).",
    "\\(6 + 0 + 2 = 8\\)"
   ],
+  "hint": "\\(\\ln\\) och \\(e\\) tar ut varandra: \\(\\ln e^x = x\\) och \\(e^{\\ln x} = x\\). Dessutom är \\(\\ln 1 = 0\\) och \\(\\ln a + \\ln b = \\ln(ab)\\).",
   "course": "3c",
   "id": "B023"
  },
@@ -1934,6 +2057,7 @@ window.QUESTIONS = [
    "\\(f''(x) = 12x^{2} - 24x + 10\\)",
    "\\(f''(2) = 12 \\cdot 2^{2} - 24 \\cdot 2 + 10 = 10\\)"
   ],
+  "hint": "Derivera två gånger och sätt sedan in x-värdet.",
   "course": "3c",
   "id": "B024"
  },
@@ -1950,6 +2074,7 @@ window.QUESTIONS = [
    "Avtagande där \\(f^{\\prime}(x) \\leq 0\\): \\(4x + 4 \\leq 0\\).",
    "Lös olikheten: \\(x \\leq -1\\)."
   ],
+  "hint": "\\(f\\) är växande där \\(f'(x) \\geq 0\\) och avtagande där \\(f'(x) \\leq 0\\).",
   "course": "3c",
   "id": "B025"
  },
@@ -1966,6 +2091,7 @@ window.QUESTIONS = [
    "\\(f'(x) = -9x^{2} - 10x + 2\\)",
    "\\(f'(3) = -9 \\cdot 3^{2} - 10 \\cdot 3 + 2 = -109\\)"
   ],
+  "hint": "Derivera först hela funktionen term för term. Sätt sedan in x-värdet i \\(f'(x)\\), inte i \\(f(x)\\).",
   "course": "3c",
   "id": "B026"
  },
@@ -1981,6 +2107,7 @@ window.QUESTIONS = [
    "Deriveringsregeln \\(D(ax^n) = a \\cdot n x^{n-1}\\), och konstanten \\(3\\) försvinner.",
    "\\(f'(x) = 4\\cdot 5x^{4} + (-7) \\cdot 2x = 20x^{4} - 14x\\)"
   ],
+  "hint": "\\(D(ax^n) = a \\cdot n \\cdot x^{n-1}\\), och konstanter har derivatan 0.",
   "course": "3c",
   "id": "B027"
  },
@@ -1996,6 +2123,7 @@ window.QUESTIONS = [
    "Regeln \\(D\\left(e^{kx}\\right) = k e^{kx}\\) och \\(D(x^2) = 2x\\).",
    "\\(f'(x) = 1 \\cdot 4 \\cdot e^{4x} + 4 \\cdot 2x = 4e^{4x} + 8x\\)"
   ],
+  "hint": "\\(D(e^{kx}) = k e^{kx}\\). Derivera varje term för sig.",
   "course": "3c",
   "id": "B028"
  },
@@ -2012,6 +2140,7 @@ window.QUESTIONS = [
    "\\(f'(x) = 12 \\cdot (-1) x^{-2} = -\\frac{12}{x^2}\\)",
    "\\(f'(-2) = -\\frac{12}{(-2)^2} = -3\\)"
   ],
+  "hint": "Skriv om som potens: \\(\\sqrt{x} = x^{1/2}\\) och \\(\\frac{1}{x} = x^{-1}\\). Använd sedan deriveringsregeln för potenser.",
   "course": "3c",
   "id": "B029"
  },
@@ -2029,6 +2158,7 @@ window.QUESTIONS = [
    "Sätt in punkten i \\(y = kx + m\\): \\(-10 = (-1) \\cdot 2 + m \\Rightarrow m = -8\\).",
    "Tangentens ekvation: \\(y = -x - 8\\)."
   ],
+  "hint": "Tangenten har lutningen \\(k = f'(a)\\) och går genom punkten \\((a,\\ f(a))\\). Använd \\(y = kx + m\\).",
   "course": "3c",
   "id": "B030"
  },
@@ -2045,6 +2175,7 @@ window.QUESTIONS = [
    "\\(f''(x) = -6x\\): \\(f''(-3) = 18\\) och \\(f''(3) = -18\\).",
    "Negativ andraderivata ger maximum, positiv ger minimum. Alltså är maximipunktens x-koordinat \\(x = 3\\)."
   ],
+  "hint": "Lös \\(f'(x) = 0\\). Avgör sedan typen med andraderivatan: \\(f'' < 0\\) ger max och \\(f'' > 0\\) ger min.",
   "course": "3c",
   "id": "B031"
  },
@@ -2061,6 +2192,7 @@ window.QUESTIONS = [
    "Sätt \\(f'(x) = 0\\) och bryt ut \\(x\\): \\(x(6x - 36) = 0\\).",
    "\\(x = 0\\) eller \\(6x - 36 = 0 \\Rightarrow x = 6\\)."
   ],
+  "hint": "Stationära punkter är där \\(f'(x) = 0\\). Bryt ut \\(x\\) ur derivatan.",
   "course": "3c",
   "id": "B032"
  },
@@ -2076,6 +2208,7 @@ window.QUESTIONS = [
    "Primitiv funktion: \\(F(x) = -\\frac{1}{3}x^{3} - x^{2} - 3x\\).",
    "\\(\\int_{0}^{2} f(x)\\,dx = F(2) - F(0) = (-\\frac{38}{3}) - 0 = -\\frac{38}{3}\\)"
   ],
+  "hint": "Ta fram en primitiv funktion \\(F\\) och beräkna \\(F(\\text{övre}) - F(\\text{undre})\\).",
   "course": "3c",
   "id": "B033"
  },
@@ -2091,6 +2224,7 @@ window.QUESTIONS = [
    "Regeln: en primitiv funktion till \\(x^n\\) är \\(\\frac{x^{n+1}}{n+1}\\). Glöm inte konstanten \\(C\\).",
    "\\(F(x) = 1 \\cdot \\frac{x^3}{3} + 1 \\cdot \\frac{x^2}{2} + 2x + C = \\frac{1}{3}x^{3} + \\frac{1}{2}x^{2} + 2x + C\\)"
   ],
+  "hint": "En primitiv funktion till \\(x^n\\) är \\(\\frac{x^{n+1}}{n+1}\\). Glöm inte \\(+\\,C\\).",
   "course": "3c",
   "id": "B034"
  },
@@ -2107,6 +2241,7 @@ window.QUESTIONS = [
    "\\(\\left[e^x\\right]_0^{\\ln 5} = e^{\\ln 5} - e^0 = 5 - 1 = 4\\)",
    "Här används att \\(e^{\\ln a} = a\\) och \\(e^0 = 1\\)."
   ],
+  "hint": "En primitiv funktion till \\(ke^{kx}\\) är \\(e^{kx}\\). Använd sedan att \\(e^{\\ln a} = a\\).",
   "course": "3c",
   "id": "B035"
  },
@@ -2123,6 +2258,7 @@ window.QUESTIONS = [
    "\\(A = \\int_{-4}^{4} (-3x^{2} + 48)\\,dx = \\left[-x^{3} + 48x\\right]_{-4}^{4}\\)",
    "\\(= 128 - (-128) = 256\\) a.e."
   ],
+  "hint": "Bestäm nollställena – de är integrationsgränserna. Integrera sedan funktionen mellan dem.",
   "course": "3c",
   "id": "B036"
  },
@@ -2139,6 +2275,7 @@ window.QUESTIONS = [
    "\\(\\frac{x^{2} - 3x - 10}{x + 2} = \\frac{(x + 2)(x - 5)}{x + 2} = x - 5\\) (för \\(x \\neq -2\\))",
    "\\(\\lim_{x \\to -2} (x - 5) = -2 - 5 = -7\\)"
   ],
+  "hint": "Direkt insättning ger \\(\\frac{0}{0}\\). Faktorisera täljaren och förkorta.",
   "course": "3c",
   "id": "B037"
  },
@@ -2156,6 +2293,7 @@ window.QUESTIONS = [
    "Dela med \\(h\\): \\(4h - 24\\). Låt \\(h \\to 0\\): \\(-24\\).",
    "(Det är derivatans definition – svaret är \\(f'(-3)\\).)"
   ],
+  "hint": "Räkna ut \\(f(a+h) - f(a)\\), förenkla, dela med \\(h\\) och låt \\(h \\to 0\\).",
   "course": "3c",
   "id": "B038"
  },
@@ -2171,6 +2309,7 @@ window.QUESTIONS = [
    "Faktorisera: täljaren \\(3(x + 9)\\), nämnaren \\((x + 9)(x - 9)\\) (konjugatregeln).",
    "Förkorta bort \\((x + 9)\\): \\(\\frac{3}{x - 9}\\)."
   ],
+  "hint": "Faktorisera täljare och nämnare (konjugat- och kvadreringsregeln) och förkorta sedan gemensamma faktorer.",
   "course": "3c",
   "id": "B039"
  },
@@ -2187,6 +2326,7 @@ window.QUESTIONS = [
    "\\(f(1) = 4\\), \\(f(-1) = 4\\)",
    "\\(\\frac{4 - 4}{1 - (-1)} = \\frac{0}{2} = 0\\)"
   ],
+  "hint": "Genomsnittlig förändringshastighet är \\(\\frac{f(b) - f(a)}{b - a}\\).",
   "course": "3c",
   "id": "B040"
  },
@@ -2201,6 +2341,7 @@ window.QUESTIONS = [
   "steps": [
    "Standardvärde (exakta värden från triangeln): \\(\\sin 30^\\circ\\) = \\(\\frac{1}{2}\\)."
   ],
+  "hint": "Rita enhetscirkeln: i vilken kvadrant ligger vinkeln, och vilken är referensvinkeln (vinkeln till x-axeln)?",
   "course": "3c",
   "id": "B041"
  },
@@ -2216,6 +2357,7 @@ window.QUESTIONS = [
    "Areasatsen: \\(A = \\frac{ab \\sin C}{2}\\).",
    "\\(A = \\frac{8 \\cdot 7 \\cdot \\sin 75^\\circ}{2} \\approx 27{,}0\\) cm²"
   ],
+  "hint": "Areasatsen: \\(A = \\frac{ab \\sin C}{2}\\).",
   "course": "3c",
   "id": "B042"
  },
@@ -2232,6 +2374,7 @@ window.QUESTIONS = [
    "\\(\\cos C = \\frac{15^2 + 8^2 - 13^2}{2 \\cdot 15 \\cdot 8} = \\frac{120}{240} = \\frac{1}{2}\\)",
    "\\(C = 60^\\circ\\)."
   ],
+  "hint": "Cosinussatsen: \\(c^2 = a^2 + b^2 - 2ab \\cos C\\). Exakta värden: \\(\\cos 60^\\circ = \\frac{1}{2}\\), \\(\\cos 120^\\circ = -\\frac{1}{2}\\).",
   "course": "3c",
   "id": "B043"
  },
@@ -2247,6 +2390,7 @@ window.QUESTIONS = [
    "Sinussatsen: \\(\\frac{a}{\\sin A} = \\frac{b}{\\sin B}\\).",
    "\\(b = \\frac{12 \\cdot \\sin 39^\\circ}{\\sin 31^\\circ} \\approx 14{,}7\\) cm"
   ],
+  "hint": "Sinussatsen: \\(\\frac{a}{\\sin A} = \\frac{b}{\\sin B}\\). Lös ut \\(b\\).",
   "course": "3c",
   "id": "B044"
  },
@@ -2263,6 +2407,7 @@ window.QUESTIONS = [
    "Ta naturliga logaritmen: \\(-2x = \\ln 6\\).",
    "\\(x = -\\frac{\\ln 6}{2} \\approx -0{,}896\\)"
   ],
+  "hint": "Isolera e-potensen först, ta sedan \\(\\ln\\) av båda leden.",
   "course": "3c",
   "id": "B045"
  },
@@ -2278,6 +2423,7 @@ window.QUESTIONS = [
    "Regeln: \\(D\\left(a^x\\right) = a^x \\ln a\\) (eftersom \\(a^x = e^{x \\ln a}\\)).",
    "\\(f'(x) = 3 \\cdot 2^x \\cdot \\ln 2\\)"
   ],
+  "hint": "Skriv \\(a^x = e^{x \\ln a}\\) och derivera – eller använd \\(D(a^x) = a^x \\ln a\\).",
   "course": "3c",
   "id": "B046"
  },
@@ -2293,6 +2439,7 @@ window.QUESTIONS = [
    "\\(\\ln e^{2} = 2\\), \\(\\ln 1 = 0\\) och \\(e^{\\ln 7} = 7\\).",
    "\\(2 + 0 + 7 = 9\\)"
   ],
+  "hint": "\\(\\ln\\) och \\(e\\) tar ut varandra: \\(\\ln e^x = x\\) och \\(e^{\\ln x} = x\\). Dessutom är \\(\\ln 1 = 0\\) och \\(\\ln a + \\ln b = \\ln(ab)\\).",
   "course": "3c",
   "id": "B047"
  },
@@ -2309,6 +2456,7 @@ window.QUESTIONS = [
    "\\(f''(x) = 24x^{2} + 24x - 4\\)",
    "\\(f''(1) = 24 \\cdot 1^{2} + 24 \\cdot 1 - 4 = 44\\)"
   ],
+  "hint": "Derivera två gånger och sätt sedan in x-värdet.",
   "course": "3c",
   "id": "B048"
  },
@@ -2325,6 +2473,7 @@ window.QUESTIONS = [
    "Avtagande där \\(f^{\\prime}(x) \\leq 0\\): \\(4x + 16 \\leq 0\\).",
    "Lös olikheten: \\(x \\leq -4\\)."
   ],
+  "hint": "\\(f\\) är växande där \\(f'(x) \\geq 0\\) och avtagande där \\(f'(x) \\leq 0\\).",
   "course": "3c",
   "id": "B049"
  },
@@ -2341,6 +2490,7 @@ window.QUESTIONS = [
    "\\(f'(x) = -9x^{2} + 4x + 6\\)",
    "\\(f'(-1) = -9 \\cdot (-1)^{2} + 4 \\cdot (-1) + 6 = -7\\)"
   ],
+  "hint": "Derivera först hela funktionen term för term. Sätt sedan in x-värdet i \\(f'(x)\\), inte i \\(f(x)\\).",
   "course": "3c",
   "id": "B050"
  },
@@ -2356,6 +2506,7 @@ window.QUESTIONS = [
    "Deriveringsregeln \\(D(ax^n) = a \\cdot n x^{n-1}\\), och konstanten \\(4\\) försvinner.",
    "\\(f'(x) = -3\\cdot 5x^{4} + (-2) \\cdot 1 = -15x^{4} - 2\\)"
   ],
+  "hint": "\\(D(ax^n) = a \\cdot n \\cdot x^{n-1}\\), och konstanter har derivatan 0.",
   "course": "3c",
   "id": "B051"
  },
@@ -2371,6 +2522,7 @@ window.QUESTIONS = [
    "Regeln \\(D\\left(e^{kx}\\right) = k e^{kx}\\) och \\(D(x^2) = 2x\\).",
    "\\(f'(x) = 3 \\cdot 4 \\cdot e^{4x} + 1 \\cdot 2x = 12e^{4x} + 2x\\)"
   ],
+  "hint": "\\(D(e^{kx}) = k e^{kx}\\). Derivera varje term för sig.",
   "course": "3c",
   "id": "B052"
  },
@@ -2387,6 +2539,7 @@ window.QUESTIONS = [
    "\\(f'(x) = 12 \\cdot \\frac{1}{2} x^{-1/2} = \\frac{12}{2\\sqrt{x}}\\)",
    "\\(f'(16) = \\frac{12}{2\\sqrt{16}} = \\frac{12}{8} = \\frac{3}{2}\\)"
   ],
+  "hint": "Skriv om som potens: \\(\\sqrt{x} = x^{1/2}\\) och \\(\\frac{1}{x} = x^{-1}\\). Använd sedan deriveringsregeln för potenser.",
   "course": "3c",
   "id": "B053"
  },
@@ -2404,6 +2557,7 @@ window.QUESTIONS = [
    "Sätt in punkten i \\(y = kx + m\\): \\(7 = (-9) \\cdot (-2) + m \\Rightarrow m = -11\\).",
    "Tangentens ekvation: \\(y = -9x - 11\\)."
   ],
+  "hint": "Tangenten har lutningen \\(k = f'(a)\\) och går genom punkten \\((a,\\ f(a))\\). Använd \\(y = kx + m\\).",
   "course": "3c",
   "id": "B054"
  },
@@ -2420,6 +2574,7 @@ window.QUESTIONS = [
    "\\(f''(x) = -6x\\): \\(f''(-2) = 12\\) och \\(f''(2) = -12\\).",
    "Negativ andraderivata ger maximum, positiv ger minimum. Alltså är minimipunktens x-koordinat \\(x = -2\\)."
   ],
+  "hint": "Lös \\(f'(x) = 0\\). Avgör sedan typen med andraderivatan: \\(f'' < 0\\) ger max och \\(f'' > 0\\) ger min.",
   "course": "3c",
   "id": "B055"
  },
@@ -2436,6 +2591,7 @@ window.QUESTIONS = [
    "Sätt \\(f'(x) = 0\\) och bryt ut \\(x\\): \\(x(6x - 12) = 0\\).",
    "\\(x = 0\\) eller \\(6x - 12 = 0 \\Rightarrow x = 2\\)."
   ],
+  "hint": "Stationära punkter är där \\(f'(x) = 0\\). Bryt ut \\(x\\) ur derivatan.",
   "course": "3c",
   "id": "B056"
  },
@@ -2451,6 +2607,7 @@ window.QUESTIONS = [
    "Primitiv funktion: \\(F(x) = 2x^{3} - x^{2} - 3x\\).",
    "\\(\\int_{1}^{4} f(x)\\,dx = F(4) - F(1) = 100 - (-2) = 102\\)"
   ],
+  "hint": "Ta fram en primitiv funktion \\(F\\) och beräkna \\(F(\\text{övre}) - F(\\text{undre})\\).",
   "course": "3c",
   "id": "B057"
  },
@@ -2466,6 +2623,7 @@ window.QUESTIONS = [
    "Regeln: en primitiv funktion till \\(x^n\\) är \\(\\frac{x^{n+1}}{n+1}\\). Glöm inte konstanten \\(C\\).",
    "\\(F(x) = 1 \\cdot \\frac{x^3}{3} + (-4) \\cdot \\frac{x^2}{2} + 4x + C = \\frac{1}{3}x^{3} - 2x^{2} + 4x + C\\)"
   ],
+  "hint": "En primitiv funktion till \\(x^n\\) är \\(\\frac{x^{n+1}}{n+1}\\). Glöm inte \\(+\\,C\\).",
   "course": "3c",
   "id": "B058"
  },
@@ -2481,6 +2639,7 @@ window.QUESTIONS = [
    "En primitiv funktion till \\(e^{kx}\\) är \\(\\frac{e^{kx}}{k}\\).",
    "\\(F(x) = (-2) \\cdot \\frac{e^{4x}}{4} + C = -\\frac{1}{2}e^{4x} + C\\)"
   ],
+  "hint": "En primitiv funktion till \\(e^{kx}\\) är \\(\\frac{e^{kx}}{k}\\) – kontrollera genom att derivera tillbaka.",
   "course": "3c",
   "id": "B059"
  },
@@ -2497,6 +2656,7 @@ window.QUESTIONS = [
    "\\(\\left[e^{2x}\\right]_0^{\\ln 3} = e^{2\\ln 3} - e^0 = 3^2 - 1 = 8\\)",
    "Här används att \\(e^{\\ln a} = a\\) och \\(e^0 = 1\\)."
   ],
+  "hint": "En primitiv funktion till \\(ke^{kx}\\) är \\(e^{kx}\\). Använd sedan att \\(e^{\\ln a} = a\\).",
   "course": "3c",
   "id": "B060"
  },
@@ -2513,6 +2673,7 @@ window.QUESTIONS = [
    "\\(A = \\int_{-3}^{3} (-3x^{2} + 27)\\,dx = \\left[-x^{3} + 27x\\right]_{-3}^{3}\\)",
    "\\(= 54 - (-54) = 108\\) a.e."
   ],
+  "hint": "Bestäm nollställena – de är integrationsgränserna. Integrera sedan funktionen mellan dem.",
   "course": "3c",
   "id": "B061"
  },
@@ -2529,6 +2690,7 @@ window.QUESTIONS = [
    "\\(\\frac{x^{2} + 8x + 15}{x + 3} = \\frac{(x + 3)(x + 5)}{x + 3} = x + 5\\) (för \\(x \\neq -3\\))",
    "\\(\\lim_{x \\to -3} (x + 5) = -3 - (-5) = 2\\)"
   ],
+  "hint": "Direkt insättning ger \\(\\frac{0}{0}\\). Faktorisera täljaren och förkorta.",
   "course": "3c",
   "id": "B062"
  },
@@ -2546,6 +2708,7 @@ window.QUESTIONS = [
    "Dela med \\(h\\): \\(4h + 40\\). Låt \\(h \\to 0\\): \\(40\\).",
    "(Det är derivatans definition – svaret är \\(f'(5)\\).)"
   ],
+  "hint": "Räkna ut \\(f(a+h) - f(a)\\), förenkla, dela med \\(h\\) och låt \\(h \\to 0\\).",
   "course": "3c",
   "id": "B063"
  },
@@ -2561,6 +2724,7 @@ window.QUESTIONS = [
    "Faktorisera: täljaren \\(4(x + 5)\\), nämnaren \\((x + 5)(x - 5)\\) (konjugatregeln).",
    "Förkorta bort \\((x + 5)\\): \\(\\frac{4}{x - 5}\\)."
   ],
+  "hint": "Faktorisera täljare och nämnare (konjugat- och kvadreringsregeln) och förkorta sedan gemensamma faktorer.",
   "course": "3c",
   "id": "B064"
  },
@@ -2577,6 +2741,7 @@ window.QUESTIONS = [
    "\\(f(1) = 1\\), \\(f(-2) = 13\\)",
    "\\(\\frac{1 - 13}{1 - (-2)} = \\frac{-12}{3} = -4\\)"
   ],
+  "hint": "Genomsnittlig förändringshastighet är \\(\\frac{f(b) - f(a)}{b - a}\\).",
   "course": "3c",
   "id": "B065"
  },
@@ -2593,6 +2758,7 @@ window.QUESTIONS = [
    "I kvadrant 2 är \\(\\tan\\) negativ (enhetscirkeln).",
    "\\(\\tan 45^\\circ\\) = \\(1\\), så \\(\\tan 135^\\circ\\) = \\(-1\\)."
   ],
+  "hint": "Rita enhetscirkeln: i vilken kvadrant ligger vinkeln, och vilken är referensvinkeln (vinkeln till x-axeln)?",
   "course": "3c",
   "id": "B066"
  },
@@ -2608,6 +2774,7 @@ window.QUESTIONS = [
    "Areasatsen: \\(A = \\frac{ab \\sin C}{2}\\).",
    "\\(A = \\frac{11 \\cdot 14 \\cdot \\sin 105^\\circ}{2} \\approx 74{,}4\\) cm²"
   ],
+  "hint": "Areasatsen: \\(A = \\frac{ab \\sin C}{2}\\).",
   "course": "3c",
   "id": "B067"
  },
@@ -2624,6 +2791,7 @@ window.QUESTIONS = [
    "\\(\\cos C = \\frac{16^2 + 5^2 - 19^2}{2 \\cdot 16 \\cdot 5} = \\frac{-80}{160} = -\\frac{1}{2}\\)",
    "\\(C = 120^\\circ\\) (cosinus är negativt, så vinkeln är trubbig)."
   ],
+  "hint": "Cosinussatsen: \\(c^2 = a^2 + b^2 - 2ab \\cos C\\). Exakta värden: \\(\\cos 60^\\circ = \\frac{1}{2}\\), \\(\\cos 120^\\circ = -\\frac{1}{2}\\).",
   "course": "3c",
   "id": "B068"
  },
@@ -2639,6 +2807,7 @@ window.QUESTIONS = [
    "Sinussatsen: \\(\\frac{a}{\\sin A} = \\frac{b}{\\sin B}\\).",
    "\\(b = \\frac{12 \\cdot \\sin 99^\\circ}{\\sin 68^\\circ} \\approx 12{,}8\\) cm"
   ],
+  "hint": "Sinussatsen: \\(\\frac{a}{\\sin A} = \\frac{b}{\\sin B}\\). Lös ut \\(b\\).",
   "course": "3c",
   "id": "B069"
  },
@@ -2655,6 +2824,7 @@ window.QUESTIONS = [
    "Ta naturliga logaritmen: \\(3x = \\ln 8\\).",
    "\\(x = \\frac{\\ln 8}{3} \\approx 0{,}693\\)"
   ],
+  "hint": "Isolera e-potensen först, ta sedan \\(\\ln\\) av båda leden.",
   "course": "3c",
   "id": "B070"
  },
@@ -2670,6 +2840,7 @@ window.QUESTIONS = [
    "Regeln: \\(D\\left(a^x\\right) = a^x \\ln a\\) (eftersom \\(a^x = e^{x \\ln a}\\)).",
    "\\(f'(x) = -2 \\cdot 5^x \\cdot \\ln 5\\)"
   ],
+  "hint": "Skriv \\(a^x = e^{x \\ln a}\\) och derivera – eller använd \\(D(a^x) = a^x \\ln a\\).",
   "course": "3c",
   "id": "B071"
  },
@@ -2685,6 +2856,7 @@ window.QUESTIONS = [
    "\\(\\ln e^{2} = 2\\), \\(\\ln 1 = 0\\) och \\(e^{\\ln 2} = 2\\).",
    "\\(2 + 0 + 2 = 4\\)"
   ],
+  "hint": "\\(\\ln\\) och \\(e\\) tar ut varandra: \\(\\ln e^x = x\\) och \\(e^{\\ln x} = x\\). Dessutom är \\(\\ln 1 = 0\\) och \\(\\ln a + \\ln b = \\ln(ab)\\).",
   "course": "3c",
   "id": "B072"
  },
@@ -2701,6 +2873,7 @@ window.QUESTIONS = [
    "\\(f''(x) = 24x^{2} - 6\\)",
    "\\(f''(2) = 24 \\cdot 2^{2} - 6 = 90\\)"
   ],
+  "hint": "Derivera två gånger och sätt sedan in x-värdet.",
   "course": "3c",
   "id": "B073"
  },
@@ -2717,6 +2890,7 @@ window.QUESTIONS = [
    "Växande där \\(f^{\\prime}(x) \\geq 0\\): \\(-2x + 4 \\geq 0\\).",
    "Lös olikheten (dela med negativt tal vänder olikheten): \\(x \\leq 2\\)."
   ],
+  "hint": "\\(f\\) är växande där \\(f'(x) \\geq 0\\) och avtagande där \\(f'(x) \\leq 0\\).",
   "course": "3c",
   "id": "B074"
  },
@@ -2733,6 +2907,7 @@ window.QUESTIONS = [
    "\\(f'(x) = -9x^{2} - 4x + 4\\)",
    "\\(f'(2) = -9 \\cdot 2^{2} - 4 \\cdot 2 + 4 = -40\\)"
   ],
+  "hint": "Derivera först hela funktionen term för term. Sätt sedan in x-värdet i \\(f'(x)\\), inte i \\(f(x)\\).",
   "course": "3c",
   "id": "B075"
  },
@@ -2748,6 +2923,7 @@ window.QUESTIONS = [
    "Deriveringsregeln \\(D(ax^n) = a \\cdot n x^{n-1}\\), och konstanten \\(-3\\) försvinner.",
    "\\(f'(x) = -5\\cdot 4x^{3} + 5 \\cdot 2x = -20x^{3} + 10x\\)"
   ],
+  "hint": "\\(D(ax^n) = a \\cdot n \\cdot x^{n-1}\\), och konstanter har derivatan 0.",
   "course": "3c",
   "id": "B076"
  },
@@ -2763,6 +2939,7 @@ window.QUESTIONS = [
    "Regeln \\(D\\left(e^{kx}\\right) = k e^{kx}\\) och \\(D(x^2) = 2x\\).",
    "\\(f'(x) = 2 \\cdot 4 \\cdot e^{4x} + 1 \\cdot 2x = 8e^{4x} + 2x\\)"
   ],
+  "hint": "\\(D(e^{kx}) = k e^{kx}\\). Derivera varje term för sig.",
   "course": "3c",
   "id": "B077"
  },
@@ -2779,6 +2956,7 @@ window.QUESTIONS = [
    "\\(f'(x) = 5 \\cdot \\frac{1}{2} x^{-1/2} = \\frac{5}{2\\sqrt{x}}\\)",
    "\\(f'(25) = \\frac{5}{2\\sqrt{25}} = \\frac{5}{10} = \\frac{1}{2}\\)"
   ],
+  "hint": "Skriv om som potens: \\(\\sqrt{x} = x^{1/2}\\) och \\(\\frac{1}{x} = x^{-1}\\). Använd sedan deriveringsregeln för potenser.",
   "course": "3c",
   "id": "B078"
  },
@@ -2796,6 +2974,7 @@ window.QUESTIONS = [
    "Sätt in punkten i \\(y = kx + m\\): \\(2 = (-7) \\cdot (-1) + m \\Rightarrow m = -5\\).",
    "Tangentens ekvation: \\(y = -7x - 5\\)."
   ],
+  "hint": "Tangenten har lutningen \\(k = f'(a)\\) och går genom punkten \\((a,\\ f(a))\\). Använd \\(y = kx + m\\).",
   "course": "3c",
   "id": "B079"
  },
@@ -2812,6 +2991,7 @@ window.QUESTIONS = [
    "\\(f''(x) = 6x\\): \\(f''(-4) = -24\\) och \\(f''(4) = 24\\).",
    "Negativ andraderivata ger maximum, positiv ger minimum. Alltså är minimipunktens x-koordinat \\(x = 4\\)."
   ],
+  "hint": "Lös \\(f'(x) = 0\\). Avgör sedan typen med andraderivatan: \\(f'' < 0\\) ger max och \\(f'' > 0\\) ger min.",
   "course": "3c",
   "id": "B080"
  },
@@ -2828,6 +3008,7 @@ window.QUESTIONS = [
    "Sätt \\(f'(x) = 0\\) och bryt ut \\(x\\): \\(x(3x - 12) = 0\\).",
    "\\(x = 0\\) eller \\(3x - 12 = 0 \\Rightarrow x = 4\\)."
   ],
+  "hint": "Stationära punkter är där \\(f'(x) = 0\\). Bryt ut \\(x\\) ur derivatan.",
   "course": "3c",
   "id": "B081"
  },
@@ -2843,6 +3024,7 @@ window.QUESTIONS = [
    "Primitiv funktion: \\(F(x) = 2x^{2} + 6x\\).",
    "\\(\\int_{-1}^{0} f(x)\\,dx = F(0) - F(-1) = 0 - (-4) = 4\\)"
   ],
+  "hint": "Ta fram en primitiv funktion \\(F\\) och beräkna \\(F(\\text{övre}) - F(\\text{undre})\\).",
   "course": "3c",
   "id": "B082"
  },
@@ -2858,6 +3040,7 @@ window.QUESTIONS = [
    "Regeln: en primitiv funktion till \\(x^n\\) är \\(\\frac{x^{n+1}}{n+1}\\). Glöm inte konstanten \\(C\\).",
    "\\(F(x) = 3 \\cdot \\frac{x^3}{3} + 5 \\cdot \\frac{x^2}{2} + (-8)x + C = x^{3} + \\frac{5}{2}x^{2} - 8x + C\\)"
   ],
+  "hint": "En primitiv funktion till \\(x^n\\) är \\(\\frac{x^{n+1}}{n+1}\\). Glöm inte \\(+\\,C\\).",
   "course": "3c",
   "id": "B083"
  },
@@ -2873,6 +3056,7 @@ window.QUESTIONS = [
    "En primitiv funktion till \\(e^{kx}\\) är \\(\\frac{e^{kx}}{k}\\).",
    "\\(F(x) = (-4) \\cdot \\frac{e^{-2x}}{-2} + C = 2e^{-2x} + C\\)"
   ],
+  "hint": "En primitiv funktion till \\(e^{kx}\\) är \\(\\frac{e^{kx}}{k}\\) – kontrollera genom att derivera tillbaka.",
   "course": "3c",
   "id": "B084"
  },
@@ -2889,6 +3073,7 @@ window.QUESTIONS = [
    "\\(\\left[e^{2x}\\right]_0^{\\ln 5} = e^{2\\ln 5} - e^0 = 5^2 - 1 = 24\\)",
    "Här används att \\(e^{\\ln a} = a\\) och \\(e^0 = 1\\)."
   ],
+  "hint": "En primitiv funktion till \\(ke^{kx}\\) är \\(e^{kx}\\). Använd sedan att \\(e^{\\ln a} = a\\).",
   "course": "3c",
   "id": "B085"
  },
@@ -2905,6 +3090,7 @@ window.QUESTIONS = [
    "\\(A = \\int_{-3}^{3} (-2x^{2} + 18)\\,dx = \\left[-\\frac{2}{3}x^{3} + 18x\\right]_{-3}^{3}\\)",
    "\\(= 36 - (-36) = 72\\) a.e."
   ],
+  "hint": "Bestäm nollställena – de är integrationsgränserna. Integrera sedan funktionen mellan dem.",
   "course": "3c",
   "id": "B086"
  },
@@ -2921,6 +3107,7 @@ window.QUESTIONS = [
    "\\(\\frac{x^{2} - 5x - 14}{x + 2} = \\frac{(x + 2)(x - 7)}{x + 2} = x - 7\\) (för \\(x \\neq -2\\))",
    "\\(\\lim_{x \\to -2} (x - 7) = -2 - 7 = -9\\)"
   ],
+  "hint": "Direkt insättning ger \\(\\frac{0}{0}\\). Faktorisera täljaren och förkorta.",
   "course": "3c",
   "id": "B087"
  },
@@ -2938,6 +3125,7 @@ window.QUESTIONS = [
    "Dela med \\(h\\): \\(4h + 16\\). Låt \\(h \\to 0\\): \\(16\\).",
    "(Det är derivatans definition – svaret är \\(f'(2)\\).)"
   ],
+  "hint": "Räkna ut \\(f(a+h) - f(a)\\), förenkla, dela med \\(h\\) och låt \\(h \\to 0\\).",
   "course": "3c",
   "id": "B088"
  },
@@ -2953,6 +3141,7 @@ window.QUESTIONS = [
    "Konjugatregeln: \\(x^2 - 25 = (x + 5)(x - 5)\\).",
    "Förkorta bort \\((x - 5)\\): \\(x + 5\\)."
   ],
+  "hint": "Faktorisera täljare och nämnare (konjugat- och kvadreringsregeln) och förkorta sedan gemensamma faktorer.",
   "course": "3c",
   "id": "B089"
  },
@@ -2969,6 +3158,7 @@ window.QUESTIONS = [
    "\\(f(2) = 3\\), \\(f(-2) = 3\\)",
    "\\(\\frac{3 - 3}{2 - (-2)} = \\frac{0}{4} = 0\\)"
   ],
+  "hint": "Genomsnittlig förändringshastighet är \\(\\frac{f(b) - f(a)}{b - a}\\).",
   "course": "3c",
   "id": "B090"
  },
@@ -2985,6 +3175,7 @@ window.QUESTIONS = [
    "I kvadrant 3 är \\(\\sin\\) negativ (enhetscirkeln).",
    "\\(\\sin 45^\\circ\\) = \\(\\frac{\\sqrt{2}}{2}\\), så \\(\\sin 225^\\circ\\) = \\(-\\frac{\\sqrt{2}}{2}\\)."
   ],
+  "hint": "Rita enhetscirkeln: i vilken kvadrant ligger vinkeln, och vilken är referensvinkeln (vinkeln till x-axeln)?",
   "course": "3c",
   "id": "B091"
  },
@@ -3000,6 +3191,7 @@ window.QUESTIONS = [
    "Areasatsen: \\(A = \\frac{ab \\sin C}{2}\\).",
    "\\(A = \\frac{15 \\cdot 10 \\cdot \\sin 70^\\circ}{2} \\approx 70{,}5\\) cm²"
   ],
+  "hint": "Areasatsen: \\(A = \\frac{ab \\sin C}{2}\\).",
   "course": "3c",
   "id": "B092"
  },
@@ -3016,6 +3208,7 @@ window.QUESTIONS = [
    "\\(\\cos C = \\frac{5^2 + 16^2 - 19^2}{2 \\cdot 5 \\cdot 16} = \\frac{-80}{160} = -\\frac{1}{2}\\)",
    "\\(C = 120^\\circ\\) (cosinus är negativt, så vinkeln är trubbig)."
   ],
+  "hint": "Cosinussatsen: \\(c^2 = a^2 + b^2 - 2ab \\cos C\\). Exakta värden: \\(\\cos 60^\\circ = \\frac{1}{2}\\), \\(\\cos 120^\\circ = -\\frac{1}{2}\\).",
   "course": "3c",
   "id": "B093"
  },
@@ -3031,6 +3224,7 @@ window.QUESTIONS = [
    "Sinussatsen: \\(\\frac{a}{\\sin A} = \\frac{b}{\\sin B}\\).",
    "\\(b = \\frac{9 \\cdot \\sin 36^\\circ}{\\sin 38^\\circ} \\approx 8{,}6\\) cm"
   ],
+  "hint": "Sinussatsen: \\(\\frac{a}{\\sin A} = \\frac{b}{\\sin B}\\). Lös ut \\(b\\).",
   "course": "3c",
   "id": "B094"
  },
@@ -3047,6 +3241,7 @@ window.QUESTIONS = [
    "Ta naturliga logaritmen: \\(-2x = \\ln 3\\).",
    "\\(x = -\\frac{\\ln 3}{2} \\approx -0{,}549\\)"
   ],
+  "hint": "Isolera e-potensen först, ta sedan \\(\\ln\\) av båda leden.",
   "course": "3c",
   "id": "B095"
  },
@@ -3062,6 +3257,7 @@ window.QUESTIONS = [
    "Logaritmlagen: \\(\\ln a + \\ln b = \\ln(ab)\\).",
    "\\(e^{\\ln 54} = 54\\) eftersom \\(e^{\\ln x} = x\\)."
   ],
+  "hint": "\\(\\ln\\) och \\(e\\) tar ut varandra: \\(\\ln e^x = x\\) och \\(e^{\\ln x} = x\\). Dessutom är \\(\\ln 1 = 0\\) och \\(\\ln a + \\ln b = \\ln(ab)\\).",
   "course": "3c",
   "id": "B096"
  },
@@ -3078,6 +3274,7 @@ window.QUESTIONS = [
    "\\(f''(x) = 24x^{2} + 24x + 8\\)",
    "\\(f''(-1) = 24 \\cdot (-1)^{2} + 24 \\cdot (-1) + 8 = 8\\)"
   ],
+  "hint": "Derivera två gånger och sätt sedan in x-värdet.",
   "course": "3c",
   "id": "B097"
  },
@@ -3094,6 +3291,7 @@ window.QUESTIONS = [
    "Växande där \\(f^{\\prime}(x) \\geq 0\\): \\(2x - 6 \\geq 0\\).",
    "Lös olikheten: \\(x \\geq 3\\)."
   ],
+  "hint": "\\(f\\) är växande där \\(f'(x) \\geq 0\\) och avtagande där \\(f'(x) \\leq 0\\).",
   "course": "3c",
   "id": "B098"
  },
@@ -3110,6 +3308,7 @@ window.QUESTIONS = [
    "\\(f'(x) = -3x^{2} + 6x + 2\\)",
    "\\(f'(2) = -3 \\cdot 2^{2} + 6 \\cdot 2 + 2 = 2\\)"
   ],
+  "hint": "Derivera först hela funktionen term för term. Sätt sedan in x-värdet i \\(f'(x)\\), inte i \\(f(x)\\).",
   "course": "3c",
   "id": "B099"
  },
@@ -3125,6 +3324,7 @@ window.QUESTIONS = [
    "Deriveringsregeln \\(D(ax^n) = a \\cdot n x^{n-1}\\), och konstanten \\(-3\\) försvinner.",
    "\\(f'(x) = -5\\cdot 3x^{2} + (-4) \\cdot 1 = -15x^{2} - 4\\)"
   ],
+  "hint": "\\(D(ax^n) = a \\cdot n \\cdot x^{n-1}\\), och konstanter har derivatan 0.",
   "course": "3c",
   "id": "B100"
  }
