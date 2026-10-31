@@ -7,49 +7,73 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">∫</span> Matteplugg</a>
+      <nav class="nav-links" aria-label="Huvudmeny">
+        <a href="lektioner.html">📚 Lektioner</a>
+        <a href="index.html" aria-current="page">📝 Prov &amp; träning</a>
+      </nav>
+    </div>
+  </header>
+
   <main id="app">
     <!-- Startsida -->
     <section id="start" class="screen">
-      <h1>Matteprov <span class="accent">2c &amp; 3c</span></h1>
-      <p class="lead">25 slumpade flervalsfrågor ur en bank på 200. Välj ett prov, svara på alla frågor och lämna in – sedan får du rättning med fullständiga uträkningar. Vill du öva i lugn och ro, välj Träning.</p>
-
-      <a class="lesson-link" href="lektioner.html"><span>📚 Lektioner Matte 3c – genomgångar, exempel och uppgifter</span><span>→</span></a>
-
-      <h2 class="group-title">📝 Prov</h2>
-      <p class="group-desc">Med tidtagning – rättning först när du lämnar in.</p>
-      <div class="levels" aria-label="Välj prov">
-        <button class="level" data-level="2c">
-          <span class="level-name">Matte 2c</span>
-          <span class="level-desc">Algebra, andragradsekvationer, räta linjen, logaritmer, exponentialekvationer, geometri, statistik</span>
-        </button>
-        <button class="level" data-level="3c">
-          <span class="level-name">Matte 3c</span>
-          <span class="level-desc">Derivata, integraler, gränsvärden, e och ln, trigonometri</span>
-        </button>
-        <button class="level" data-level="mix">
-          <span class="level-name">Mixat</span>
-          <span class="level-desc">Blandat från båda kurserna</span>
-        </button>
+      <div class="hero">
+        <h1>Plugga till <span class="accent">Matte 2c &amp; 3c</span></h1>
+        <p class="lead">Lär dig med interaktiva lektioner, öva med ledtrådar och testa dig själv med prov som rättas med fullständiga uträkningar.</p>
       </div>
 
-      <h2 class="group-title">💡 Träning</h2>
-      <p class="group-desc">Utan tidtagning. Få en ledtråd om du kör fast och se rätt svar med uträkning direkt.</p>
-      <div class="levels levels-train" aria-label="Välj träning">
-        <button class="level level-train" data-level="2c" data-mode="train">
-          <span class="level-name">Träning 2c</span>
-          <span class="level-desc">Frågor från Matte 2c</span>
-        </button>
-        <button class="level level-train" data-level="3c" data-mode="train">
-          <span class="level-name">Träning 3c</span>
-          <span class="level-desc">Frågor från Matte 3c</span>
-        </button>
-        <button class="level level-train" data-level="mix" data-mode="train">
-          <span class="level-name">Träning mixat</span>
-          <span class="level-desc">Blandat från båda kurserna</span>
-        </button>
+      <div class="paths">
+        <a class="path path-learn" href="lektioner.html">
+          <span class="path-icon">📚</span>
+          <span class="path-kicker">Lär dig</span>
+          <span class="path-title">Lektioner Matte 3c</span>
+          <span class="path-desc">Genomgångar med grafer du kan dra i, lösta exempel och uppgifter med facit.</span>
+          <span id="lesson-stat" class="path-stat"></span>
+          <span class="path-go">Till lektionerna →</span>
+        </a>
+        <a class="path path-test" href="#valj">
+          <span class="path-icon">📝</span>
+          <span class="path-kicker">Testa dig</span>
+          <span class="path-title">Prov &amp; träning</span>
+          <span class="path-desc">25 slumpade flervalsfrågor ur en bank på 200 – med tid, eller i lugn takt med ledtrådar.</span>
+          <span id="test-stat" class="path-stat"></span>
+          <span class="path-go">Välj nivå ↓</span>
+        </a>
+      </div>
+
+      <h2 id="valj" class="section-title">Välj nivå</h2>
+      <p class="group-desc"><strong>Prov:</strong> med tidtagning, rättning när du lämnar in. <strong>Träna:</strong> utan tid, ledtråd om du kör fast och svar direkt.</p>
+      <div class="courses">
+        <div class="course">
+          <div class="course-name">Matte 2c</div>
+          <p class="course-desc">Algebra, andragradsekvationer, räta linjen, logaritmer, exponentialekvationer, geometri, statistik</p>
+          <div class="course-actions">
+            <button class="btn btn-primary" data-level="2c">📝 Prov</button>
+            <button class="btn btn-ghost" data-level="2c" data-mode="train">💡 Träna</button>
+          </div>
+        </div>
+        <div class="course">
+          <div class="course-name">Matte 3c</div>
+          <p class="course-desc">Derivata, integraler, gränsvärden, e och ln, trigonometri</p>
+          <div class="course-actions">
+            <button class="btn btn-primary" data-level="3c">📝 Prov</button>
+            <button class="btn btn-ghost" data-level="3c" data-mode="train">💡 Träna</button>
+          </div>
+        </div>
+        <div class="course">
+          <div class="course-name">Mixat</div>
+          <p class="course-desc">Blandade frågor från båda kurserna</p>
+          <div class="course-actions">
+            <button class="btn btn-primary" data-level="mix">📝 Prov</button>
+            <button class="btn btn-ghost" data-level="mix" data-mode="train">💡 Träna</button>
+          </div>
+        </div>
       </div>
 
       <div id="history" class="history" hidden></div>
@@ -120,7 +144,7 @@
     </section>
   </main>
 
-  <script src="questions.js?v=6"></script>
-  <script src="app.js?v=6"></script>
+  <script src="questions.js?v=8"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>

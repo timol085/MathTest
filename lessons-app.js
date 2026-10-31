@@ -31,7 +31,13 @@
   const tangent = (f, k, a, x0, x1, cls = "c2") =>
     ({ x1: x0, y1: f(a) + k * (x0 - a), x2: x1, y2: f(a) + k * (x1 - a), cls });
 
-  window.LH = { fmt, fmtT, lineEq, tangent };
+  // Lägg in en lektion direkt efter en annan (så att kapitel kan byggas på från flera filer).
+  function insertAfter(id, lesson) {
+    const i = LESSONS.findIndex((l) => l.id === id);
+    LESSONS.splice(i < 0 ? LESSONS.length : i + 1, 0, lesson);
+  }
+
+  window.LH = { fmt, fmtT, lineEq, tangent, insertAfter };
 
   // ---------- grafer (SVG) ----------
 
@@ -268,29 +274,72 @@
     return order.map((name) => ({ name, lessons: by[name] }));
   }
 
+  const LAST_KEY = "lektioner-senaste";
+  const store = (k, v) => { try { localStorage.setItem(k, v); } catch { /* ignorera */ } };
+  const read = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
+
   function renderOverview() {
     const main = $("lessons");
     main.innerHTML = "";
-    main.appendChild(el("a", "back-link", "← Till proven")).href = "index.html";
-    main.appendChild(el("h1", "", 'Lektioner <span class="accent">Matte 3c</span>'));
-    main.appendChild(el("p", "lead",
-      "Varje lektion har tre delar: en genomgång du stegar dig igenom (med grafer du kan dra i), exempel med ledtrådar och uppgifter med facit som du rättar själv."));
+    const chs = chapters();
+    // Startsidan visar antalet i sitt lektionskort.
+    store("lektioner-antal", JSON.stringify({ lessons: LESSONS.length, chapters: chs.length }));
 
-    chapters().forEach((ch) => {
+    const hero = el("div", "hero");
+    hero.appendChild(el("h1", "", 'Lektioner <span class="accent">Matte 3c</span>'));
+    hero.appendChild(el("p", "lead",
+      "Varje lektion har tre delar: en genomgång du stegar dig igenom (med grafer du kan dra i), exempel med ledtrådar och uppgifter med facit som du rättar själv."));
+    main.appendChild(hero);
+
+    // Framsteg + fortsätt
+    const all = loadProgress();
+    const done = LESSONS.filter((l) => all[l.id]?.theory).length;
+    const right = LESSONS.reduce((n, l) => n + Object.values(all[l.id]?.ex || {}).filter((v) => v === "right").length, 0);
+    const exTotal = LESSONS.reduce((n, l) => n + l.exercises.length, 0);
+    const last = LESSONS.find((l) => l.id === read(LAST_KEY));
+    const next = last || LESSONS.find((l) => !all[l.id]?.theory) || LESSONS[0];
+    const sum = el("div", "card overview-summary");
+    sum.innerHTML =
+      `<div class="ov-stats">` +
+      `<div><span class="ov-num">${done}<span class="muted"> / ${LESSONS.length}</span></span><span class="ov-label">genomgångar klara</span></div>` +
+      `<div><span class="ov-num">${right}<span class="muted"> / ${exTotal}</span></span><span class="ov-label">uppgifter rätt</span></div>` +
+      `</div><span class="meter"><span style="width:${(100 * done) / LESSONS.length}%"></span></span>`;
+    const go = el("a", "btn btn-primary", last ? `Fortsätt: ${next.title} →` : done ? `Nästa: ${next.title} →` : `Börja med ${next.title} →`);
+    go.href = `#/${next.id}`;
+    sum.appendChild(go);
+    main.appendChild(sum);
+
+    // Snabbhopp till kapitel (knappar, eftersom #-länkar används för routing)
+    const jump = el("nav", "chapter-jump");
+    jump.setAttribute("aria-label", "Kapitel");
+    const sections = [];
+    chs.forEach((ch, i) => {
+      const b = el("button", "chip-btn", `${i + 1}. ${ch.name}`);
+      b.addEventListener("click", () => sections[i].scrollIntoView({ behavior: "smooth", block: "start" }));
+      jump.appendChild(b);
+    });
+    main.appendChild(jump);
+
+    chs.forEach((ch, i) => {
       const sec = el("section", "chapter");
-      sec.appendChild(el("h2", "", ch.name));
+      sections.push(sec);
+      const chDone = ch.lessons.filter((l) => all[l.id]?.theory).length;
+      const head = el("div", "chapter-head");
+      head.innerHTML = `<div><div class="chapter-kicker">Kapitel ${i + 1}</div><h2>${ch.name}</h2></div>` +
+        `<span class="chapter-count${chDone === ch.lessons.length ? " complete" : ""}">${chDone}/${ch.lessons.length} klara</span>`;
+      sec.appendChild(head);
       const grid = el("div", "lesson-grid");
-      ch.lessons.forEach((l) => {
+      ch.lessons.forEach((l, j) => {
         const p = lessonProgress(l.id);
-        const right = Object.values(p.ex).filter((v) => v === "right").length;
-        const card = el("a", "lesson-card");
+        const r = Object.values(p.ex).filter((v) => v === "right").length;
+        const card = el("a", "lesson-card" + (p.theory ? " is-done" : ""));
         card.href = `#/${l.id}`;
         card.innerHTML =
-          `<span class="lesson-num">${ch.lessons.indexOf(l) + 1}</span>` +
+          `<span class="lesson-num">${i + 1}.${j + 1}${p.theory ? ' <span class="done">✓</span>' : ""}</span>` +
           `<span class="lesson-title">${l.title}</span>` +
           `<span class="lesson-desc">${l.intro}</span>` +
-          `<span class="lesson-prog">${p.theory ? '<span class="done">✓ Genomgång</span>' : ""}` +
-          `${Object.keys(p.ex).length ? `<span>Uppgifter: ${right}/${l.exercises.length} rätt</span>` : ""}</span>`;
+          `<span class="lesson-prog"><span>${l.examples.length} exempel · ${l.exercises.length} uppgifter</span>` +
+          `${Object.keys(p.ex).length ? `<span class="lesson-right">${r}/${l.exercises.length} rätt</span>` : ""}</span>`;
         grid.appendChild(card);
       });
       sec.appendChild(grid);
@@ -304,6 +353,7 @@
     const main = $("lessons");
     main.innerHTML = "";
     const idx = LESSONS.indexOf(lesson);
+    store(LAST_KEY, lesson.id);
     main.appendChild(el("a", "back-link", `← Alla lektioner`)).href = "#/";
     main.appendChild(el("div", "crumb muted", lesson.chapter));
     main.appendChild(el("h1", "lesson-h1", lesson.title));

@@ -225,4 +225,134 @@
       { q: R`Två sidor i en triangel är båda 4 cm och vinkeln mellan dem är \(150^\circ\). Beräkna arean exakt.`, answer: "4 cm²", steps: [R`\(\sin 150^\circ = \frac{1}{2}\)`, R`\(\frac{4 \cdot 4 \cdot \frac{1}{2}}{2} = 4\)`] },
     ],
   });
+
+  // ------------------------------------------------------------------
+  // Det tvetydiga fallet: A = 30°, b = AC = 6, sidan a varierar.
+  const AMB = { A: 30, b: 6 };
+  const ambiguous = (a) => {
+    const Cx = AMB.b * Math.cos(rad(AMB.A)), Cy = AMB.b * Math.sin(rad(AMB.A));
+    const disc = a * a - Cy * Cy;
+    const Bs = disc < -1e-9 ? [] : Math.abs(disc) < 1e-9 ? [Cx] : [Cx - Math.sqrt(disc), Cx + Math.sqrt(disc)].filter((x) => x > 1e-9);
+    return { Cx, Cy, Bs };
+  };
+
+  L.push({
+    id: "bevis-triangelsatser",
+    chapter: CH,
+    title: "Bevisen och det tvetydiga fallet",
+    intro: "Varför satserna stämmer – och varför sinussatsen ibland ger två trianglar.",
+    theory: [
+      {
+        title: "Trigonometriska ettan",
+        text: R`<p>Punkten \((\cos v,\ \sin v)\) ligger på enhetscirkeln, som har radien 1. Pythagoras sats ger då sambandet som används i flera av bevisen:</p>`,
+        rule: R`\(\sin^2 v + \cos^2 v = 1\)`,
+      },
+      {
+        title: "Bevis av areasatsen",
+        text: R`<p>Dra höjden \(h\) från \(A\) ner mot sidan \(a\) (eller dess förlängning). I den rätvinkliga triangel som bildas är \(b\) hypotenusa, så</p>
+<ul><li>om \(C\) är spetsig: \(h = b \sin C\)</li>
+<li>om \(C\) är trubbig: \(h = b \sin(180^\circ - C) = b \sin C\)</li></ul>
+<p>I båda fallen blir arean \(T = \dfrac{a \cdot h}{2} = \dfrac{ab \sin C}{2}\). Dra \(C\) över 90° och se hur höjden hamnar utanför triangeln:</p>`,
+        graph: {
+          xmin: -4.5, xmax: 5.5, ymin: -0.8, ymax: 4.4, h: 318, axes: false, alt: "Höjden i en spetsig och en trubbig triangel",
+          sliders: [{ key: "C", label: R`\(C\) (grader)`, min: 30, max: 150, step: 5, value: 120 }],
+          draw: ({ C }) => triangle(5, 4, C, { height: true }),
+          caption: ({ C }) => C > 90
+            ? R`\(C = ${C}^\circ\) är trubbig: \(h = 4 \sin(180^\circ - ${C}^\circ) = 4 \sin ${180 - C}^\circ \approx ${fmt(4 * Math.sin(rad(C)), 2)}\)`
+            : R`\(C = ${C}^\circ\): \(h = 4 \sin ${C}^\circ \approx ${fmt(4 * Math.sin(rad(C)), 2)}\)`,
+        },
+      },
+      {
+        title: "Bevis av sinussatsen",
+        text: R`<p>Arean kan beräknas med areasatsen utifrån vilket hörn som helst:</p>
+<p>\(T = \dfrac{ab \sin C}{2} = \dfrac{bc \sin A}{2} = \dfrac{ac \sin B}{2}\)</p>
+<p>Multiplicera alla tre leden med \(\dfrac{2}{abc}\):</p>`,
+        rule: R`\(\dfrac{\sin C}{c} = \dfrac{\sin A}{a} = \dfrac{\sin B}{b}\) \(\qquad\blacksquare\)`,
+      },
+      {
+        title: "Bevis av cosinussatsen",
+        text: R`<p>Lägg triangeln i ett koordinatsystem med \(C\) i origo och sidan \(a\) längs x-axeln. Då är \(B = (a,\ 0)\) och \(A = (b\cos C,\ b\sin C)\).</p>
+<p>Avståndsformeln ger sidan \(c = |AB|\):</p>
+<p>\(c^2 = (b\cos C - a)^2 + (b \sin C)^2\)</p>
+<p>\(\phantom{c^2} = b^2\cos^2 C - 2ab\cos C + a^2 + b^2\sin^2 C\)</p>
+<p>\(\phantom{c^2} = a^2 + b^2(\underbrace{\sin^2 C + \cos^2 C}_{=1}) - 2ab \cos C\)</p>`,
+        rule: R`\(c^2 = a^2 + b^2 - 2ab\cos C\) \(\qquad\blacksquare\)`,
+        graph: {
+          xmin: -2, xmax: 6, ymin: -0.8, ymax: 4.6, h: 300, xstep: 1, ystep: 1, alt: "Triangeln i ett koordinatsystem",
+          sliders: [{ key: "C", label: R`\(C\) (grader)`, min: 20, max: 160, step: 5, value: 55 }],
+          draw: ({ C }) => {
+            const d = triangle(5, 4, C);
+            const Ax = 4 * Math.cos(rad(C)), Ay = 4 * Math.sin(rad(C));
+            d.lines.push({ x1: Ax, y1: 0, x2: Ax, y2: Ay, cls: "cm", dash: true, thin: true });
+            d.points = [{ x: Ax, y: Ay, cls: "c2", label: `(4cos C, 4sin C)`, dx: Ax < 0 ? -8 : 8, anchor: Ax < 0 ? "end" : "start", dy: -14 }, { x: 5, y: 0, cls: "c2" }, { x: 0, y: 0, cls: "c2" }];
+            return d;
+          },
+          caption: ({ C }) => R`\(a = 5,\ b = 4,\ C = ${C}^\circ\): \(\;c = \sqrt{25 + 16 - 40\cos ${C}^\circ} \approx ${fmt(Math.sqrt(41 - 40 * Math.cos(rad(C))), 2)}\)`,
+        },
+      },
+      {
+        title: "Det tvetydiga fallet",
+        text: R`<p>Känner man två sidor och en vinkel som <em>inte</em> ligger mellan dem kan det finnas 0, 1 eller 2 trianglar. Här är \(A = 30^\circ\) och \(b = 6\). Sidan \(a\) svänger runt hörnet \(C\) – var träffar den den nedre linjen?</p>`,
+        graph: {
+          xmin: -0.8, xmax: 11, ymin: -1, ymax: 4.6, h: 300, axes: false, alt: "Det tvetydiga fallet",
+          sliders: [{ key: "a", label: R`\(a\)`, min: 2, max: 7.5, step: 0.25, value: 4 }],
+          draw: ({ a }) => {
+            const { Cx, Cy, Bs } = ambiguous(a);
+            const lines = [{ x1: 0, y1: 0, x2: 11, y2: 0, cls: "cm", thin: true }, { x1: 0, y1: 0, x2: Cx, y2: Cy, cls: "c1" }];
+            Bs.forEach((x, i) => lines.push({ x1: Cx, y1: Cy, x2: x, y2: 0, cls: i ? "c3" : "c2" }));
+            return {
+              lines,
+              curves: [{ x: (t) => Cx + a * Math.cos(t), y: (t) => Cy + a * Math.sin(t), t0: 0, t1: 2 * Math.PI, cls: "cm", dash: true }, { x: (t) => 0.9 * Math.cos(t), y: (t) => 0.9 * Math.sin(t), t0: 0, t1: rad(AMB.A), cls: "c2" }],
+              points: Bs.map((x, i) => ({ x, y: 0, cls: i ? "c3" : "c2", label: Bs.length > 1 ? `B${i ? "₂" : "₁"}` : "B", dy: 18, anchor: "middle", dx: 0 })),
+              labels: [{ x: -0.2, y: -0.4, text: "A", cls: "cm", anchor: "end" }, { x: Cx, y: Cy + 0.25, text: "C", cls: "cm", anchor: "middle" }, { x: Cx / 2 - 0.2, y: Cy / 2 + 0.25, text: "b = 6", anchor: "end" }],
+            };
+          },
+          caption: ({ a }) => {
+            const n = ambiguous(a).Bs.length;
+            const s = Math.asin(6 * 0.5 / a) * 180 / Math.PI;
+            if (n === 0) return R`\(a = ${fmt(a)}\): \(\sin B = \frac{6 \sin 30^\circ}{${fmt(a)}} > 1\) – <strong>ingen</strong> triangel.`;
+            if (Math.abs(a - 3) < 1e-9) return R`\(a = 3\): \(\sin B = 1\), \(B = 90^\circ\) – <strong>en</strong> (rätvinklig) triangel.`;
+            if (n === 2) return R`\(a = ${fmt(a)}\): \(B \approx ${fmt(s, 1)}^\circ\) eller \(B \approx ${fmt(180 - s, 1)}^\circ\) – <strong>två</strong> trianglar.`;
+            return R`\(a = ${fmt(a)}\): \(B \approx ${fmt(s, 1)}^\circ\) (\(180^\circ - ${fmt(s, 1)}^\circ\) ger vinkelsumma över 180°) – <strong>en</strong> triangel.`;
+          },
+        },
+        note: R`Kontrollera alltid: om \(A + (180^\circ - B) < 180^\circ\) finns även den trubbiga lösningen.`,
+      },
+    ],
+    examples: [
+      {
+        q: R`I triangeln \(ABC\) är \(A = 30^\circ\), \(a = 4\) cm och \(b = 6\) cm. Bestäm vinkeln \(B\).`,
+        hints: [R`Sinussatsen: \(\sin B = \dfrac{b \sin A}{a}\).`, R`Ekvationen \(\sin B = 0{,}75\) har två lösningar mellan 0° och 180°.`, "Kontrollera vinkelsumman för båda."],
+        steps: [R`\(\sin B = \dfrac{6 \sin 30^\circ}{4} = 0{,}75\)`, R`\(B_1 \approx 48{,}6^\circ\) eller \(B_2 \approx 180^\circ - 48{,}6^\circ = 131{,}4^\circ\)`, R`\(30^\circ + 131{,}4^\circ = 161{,}4^\circ < 180^\circ\) – båda fungerar.`, { graph: { xmin: -0.8, xmax: 11, ymin: -1, ymax: 4.6, h: 260, axes: false, draw: () => { const { Cx, Cy, Bs } = ambiguous(4); return { lines: [{ x1: 0, y1: 0, x2: Bs[1], y2: 0, cls: "cm" }, { x1: 0, y1: 0, x2: Cx, y2: Cy, cls: "c1" }, { x1: Cx, y1: Cy, x2: Bs[0], y2: 0, cls: "c2" }, { x1: Cx, y1: Cy, x2: Bs[1], y2: 0, cls: "c3" }], points: [{ x: Bs[0], y: 0, cls: "c2", label: "B₁", dy: 18, dx: 0, anchor: "middle" }, { x: Bs[1], y: 0, cls: "c3", label: "B₂", dy: 18, dx: 0, anchor: "middle" }] }; } } }],
+        answer: R`\(B \approx 48{,}6^\circ\) eller \(B \approx 131{,}4^\circ\) (två trianglar)`,
+      },
+      {
+        q: R`I triangeln \(ABC\) är \(A = 40^\circ\), \(a = 8\) cm och \(b = 5\) cm. Bestäm vinkeln \(B\).`,
+        hints: [R`Sinussatsen ger \(\sin B\).`, R`Prova om även \(180^\circ - B\) är möjlig.`],
+        steps: [R`\(\sin B = \dfrac{5 \sin 40^\circ}{8} \approx 0{,}402\)`, R`\(B_1 \approx 23{,}7^\circ\), \(\;B_2 \approx 156{,}3^\circ\)`, R`\(40^\circ + 156{,}3^\circ > 180^\circ\) – bara \(B_1\) fungerar.`],
+        answer: R`\(B \approx 23{,}7^\circ\) (en triangel)`,
+      },
+      {
+        q: R`Visa att arean av en liksidig triangel med sidan \(s\) är \(\dfrac{\sqrt{3}}{4}s^2\).`,
+        hints: ["Alla vinklar i en liksidig triangel är 60°.", R`Areasatsen med \(a = b = s\) och \(C = 60^\circ\).`],
+        steps: [R`\(T = \dfrac{s \cdot s \cdot \sin 60^\circ}{2}\)`, R`\(= \dfrac{s^2 \cdot \frac{\sqrt{3}}{2}}{2} = \dfrac{\sqrt{3}}{4}s^2\) \(\quad\blacksquare\)`],
+        answer: R`\(T = \dfrac{\sqrt{3}}{4}s^2\)`,
+      },
+      {
+        q: R`Vinkeln \(v\) är trubbig och \(\sin v = \frac{3}{5}\). Bestäm \(\cos v\) exakt.`,
+        hints: ["Trigonometriska ettan.", "Vilket tecken har cosinus för trubbiga vinklar?"],
+        steps: [R`\(\cos^2 v = 1 - \left(\tfrac{3}{5}\right)^2 = \tfrac{16}{25}\)`, R`\(\cos v = \pm\tfrac{4}{5}\). Trubbig vinkel (kvadrant 2) ⇒ negativ.`],
+        answer: R`\(\cos v = -\tfrac{4}{5}\)`,
+      },
+    ],
+    exercises: [
+      { q: R`I triangeln \(ABC\) är \(A = 50^\circ\), \(a = 7\) och \(b = 8\). Bestäm alla möjliga värden på \(B\).`, answer: R`\(B \approx 61{,}1^\circ\) eller \(B \approx 118{,}9^\circ\)`, steps: [R`\(\sin B = \frac{8 \sin 50^\circ}{7} \approx 0{,}875\)`, R`\(50^\circ + 118{,}9^\circ < 180^\circ\) – båda fungerar.`] },
+      { q: R`I triangeln \(ABC\) är \(A = 35^\circ\), \(a = 10\) och \(b = 6\). Bestäm \(B\).`, answer: R`\(B \approx 20{,}1^\circ\) (bara en triangel)`, steps: [R`\(\sin B = \frac{6 \sin 35^\circ}{10} \approx 0{,}344\)`, R`\(35^\circ + 159{,}9^\circ > 180^\circ\)`] },
+      { q: R`Hur många trianglar finns det med \(A = 30^\circ\), \(b = 10\) och \(a = 5\)?`, answer: R`En (rätvinklig, \(B = 90^\circ\))`, steps: [R`\(\sin B = \frac{10 \cdot 0{,}5}{5} = 1\)`] },
+      { q: R`Hur många trianglar finns det med \(A = 30^\circ\), \(b = 10\) och \(a = 4\)?`, answer: "Ingen", steps: [R`\(\sin B = \frac{10 \cdot 0{,}5}{4} = 1{,}25 > 1\) – omöjligt.`] },
+      { q: R`Visa att cosinussatsen blir Pythagoras sats när \(C = 90^\circ\).`, answer: R`\(c^2 = a^2 + b^2 - 2ab \cdot 0 = a^2 + b^2\)`, steps: [R`\(\cos 90^\circ = 0\)`] },
+      { q: R`Vinkeln \(v\) är spetsig och \(\cos v = 0{,}6\). Bestäm \(\sin v\).`, answer: R`\(\sin v = 0{,}8\)`, steps: [R`\(\sin^2 v = 1 - 0{,}36 = 0{,}64\)`] },
+      { q: R`Visa med sinussatsen att \(\dfrac{\sin A}{a} = \dfrac{1}{c}\) i en rätvinklig triangel med \(C = 90^\circ\). Stämmer det med definitionen av sinus?`, answer: R`Ja: \(\frac{\sin A}{a} = \frac{\sin 90^\circ}{c} = \frac{1}{c}\), alltså \(\sin A = \frac{a}{c}\) – motstående katet genom hypotenusan.` },
+    ],
+  });
 })();

@@ -34,6 +34,7 @@
 
   function show(name) {
     screens.forEach((s) => ($(s).hidden = s !== name));
+    document.body.dataset.screen = name;
     window.scrollTo(0, 0);
   }
 
@@ -355,7 +356,28 @@
     btn.classList.remove("armed");
   }
 
+  // Små sammanfattningar på startsidans två kort.
+  function renderStats() {
+    const h = loadHistory();
+    const last = h[0];
+    $("test-stat").textContent = last
+      ? `Senast: ${last.score}/${last.total} (${Math.round((100 * last.score) / last.total)} %) · ${label(last.level, last.mode)}`
+      : "Inga prov gjorda ännu";
+    // Antalet lektioner sparas av lektionssidan; innan den besökts vet startsidan inte det.
+    let progress = {}, info = {};
+    try {
+      progress = JSON.parse(localStorage.getItem("lektioner-progress")) || {};
+      info = JSON.parse(localStorage.getItem("lektioner-antal")) || {};
+    } catch { /* ignorera */ }
+    const total = info.lessons || 0;
+    const done = Object.values(progress).filter((p) => p && p.theory).length;
+    $("lesson-stat").innerHTML = done
+      ? `${done}${total ? ` av ${total}` : ""} genomgångar klara` + (total ? `<span class="meter"><span style="width:${Math.min(100, (100 * done) / total)}%"></span></span>` : "")
+      : total ? `${total} lektioner i ${info.chapters} kapitel` : "Börja med första lektionen";
+  }
+
   function renderHistory() {
+    renderStats();
     const h = loadHistory();
     const box = $("history");
     box.hidden = h.length === 0;
@@ -389,7 +411,7 @@
   // ---------- händelser ----------
 
   $("hint-btn").addEventListener("click", showHint);
-  document.querySelectorAll(".level").forEach((b) =>
+  document.querySelectorAll("#start [data-level]").forEach((b) =>
     b.addEventListener("click", () => startTest(b.dataset.level, b.dataset.mode)));
   $("prev").addEventListener("click", () => go(-1));
   $("next").addEventListener("click", () => go(1));
