@@ -11,6 +11,9 @@ Mock-prov med flervalsfrågor (3 alternativ) för Matematik 2c och 3c. Varje pro
 | `app.js`                      | Provlogik: slumpning, rättning, historik            |
 | `questions.js`                | Frågebanken (genererad)                             |
 | `tools/generate_questions.py` | Generator som räknar fram alla svar och uträkningar |
+| `lektioner.html`              | Lektioner för Matte 3c                              |
+| `lessons-app.js`              | Lektionsmotor: grafer, steg, ledtrådar, facit       |
+| `lessons/*.js`                | Lektionsinnehållet, ett kapitel per fil             |
 
 ## Ändra eller utöka frågebanken
 
